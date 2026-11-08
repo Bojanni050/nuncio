@@ -454,7 +454,7 @@ export class Message extends ModelWithMetadata {
       this.to.length === 1 &&
       this.from.length === 1 &&
       this.to[0].email === this.from[0].email &&
-      (this.from[0].name || '').endsWith('via Lyng');
+      (this.from[0].name || '').endsWith('via Nuncio');
     const isDraftBeingDeleted = this.id.startsWith('deleted-');
 
     return isReminder || isDraftBeingDeleted;

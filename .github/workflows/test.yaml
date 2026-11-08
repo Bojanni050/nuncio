@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - name: Check Lyng fork invariants
+      - name: Check Nuncio fork invariants
         run: npm run check:fork
 
       - name: Setup Node.js
@@ -35,7 +35,7 @@ jobs:
         run: npm run typecheck
 
   # The spec suite opens a real Electron window and needs the sync engine, because
-  # the mail database schema is created by mailsync's `migrate` mode. Lyng targets
+  # the mail database schema is created by mailsync's `migrate` mode. Nuncio targets
   # Windows and only publishes a Windows engine build, so the tests run there.
   tests:
     runs-on: windows-latest

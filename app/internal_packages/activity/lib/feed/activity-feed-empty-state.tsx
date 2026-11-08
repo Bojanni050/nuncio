@@ -53,7 +53,7 @@ export function ActivityFeedEmptyState({ hasTrackedMessages }: { hasTrackedMessa
       </ol>
       <p className="hint">
         {localized(
-          'Lyng remembers the last setting you chose for new messages. Plain-text messages cannot be tracked, and free accounts include a limited number of tracked messages.'
+          'Nuncio remembers the last setting you chose for new messages. Plain-text messages cannot be tracked, and free accounts include a limited number of tracked messages.'
         )}
       </p>
       <div className="btn btn-emphasis" onClick={() => Actions.composeNewBlankDraft()}>

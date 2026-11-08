@@ -135,9 +135,9 @@ export default class AppEnvConstructor {
     const MailsyncBridge = require('./flux/mailsync-bridge').default;
     this.mailsyncBridge = new MailsyncBridge();
 
-    process.title = `Lyng ${this.getWindowType()}`;
+    process.title = `Nuncio ${this.getWindowType()}`;
     this.onWindowPropsReceived(() => {
-      process.title = `Lyng ${this.getWindowType()}`;
+      process.title = `Nuncio ${this.getWindowType()}`;
     });
 
     // Shortcut phased out in April 2026, remove in June/July 2026
@@ -167,7 +167,7 @@ export default class AppEnvConstructor {
       'Start Menu',
       'Programs',
       'Startup',
-      'Lyng.lnk'
+      'Nuncio.lnk'
     );
     const fs = require('fs');
     const exists = fs.existsSync(shortcutPath);
@@ -743,7 +743,7 @@ export default class AppEnvConstructor {
       require('./ai/secrets')
         .loadSecrets()
         .catch((err: unknown) =>
-          console.warn('Lyng could not load the AI keys from storage.', err)
+          console.warn('Nuncio could not load the AI keys from storage.', err)
         );
     }
     await this.startWindow();

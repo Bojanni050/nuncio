@@ -367,7 +367,7 @@ export function registerTools(server: McpServer) {
   defineTool(
     server,
     'list_accounts',
-    'List all email accounts configured in Lyng',
+    'List all email accounts configured in Nuncio',
     {},
     'read',
     async () => {
@@ -641,7 +641,7 @@ export function registerTools(server: McpServer) {
       }
       if (!filePath) {
         return errorResult(
-          `Attachment '${file.displayName()}' is not available locally and could not be downloaded. Open the message in Lyng to download it, then try again.`
+          `Attachment '${file.displayName()}' is not available locally and could not be downloaded. Open the message in Nuncio to download it, then try again.`
         );
       }
 

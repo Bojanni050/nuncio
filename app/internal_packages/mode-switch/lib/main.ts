@@ -6,7 +6,7 @@ import ModeToggle from './mode-toggle';
 const ToggleWithTutorialTip = HasTutorialTip(ModeToggle, {
   title: localized('Compose with context'),
   instructions: localized(
-    'Lyng shows you everything about your contacts right inside your inbox. See LinkedIn profiles, Twitter bios, message history, and more.'
+    'Nuncio shows you everything about your contacts right inside your inbox. See LinkedIn profiles, Twitter bios, message history, and more.'
   ),
 });
 

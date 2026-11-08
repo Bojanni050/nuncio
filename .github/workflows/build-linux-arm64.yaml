@@ -72,14 +72,14 @@ jobs:
       - name: Upload DEB artifact for testing
         uses: actions/upload-artifact@v7
         with:
-          name: lyng-arm64-deb
+          name: nuncio-arm64-deb
           path: app/dist/*.deb
           retention-days: 1
 
       - name: Upload RPM artifact for testing
         uses: actions/upload-artifact@v7
         with:
-          name: lyng-arm64-rpm
+          name: nuncio-arm64-rpm
           path: app/dist/*.rpm
           retention-days: 1
 
@@ -93,13 +93,13 @@ jobs:
       - name: Download DEB artifact
         uses: actions/download-artifact@v8
         with:
-          name: lyng-arm64-deb
+          name: nuncio-arm64-deb
 
       - name: Test installation on Ubuntu ${{ matrix.ubuntu_version }} (arm64)
         run: |
           docker run --rm --platform linux/arm64 -v ${{ github.workspace }}:/workspace ubuntu:${{ matrix.ubuntu_version }} bash -c "
             set -e
-            echo '=== Testing Lyng ARM64 installation on Ubuntu ${{ matrix.ubuntu_version }} ==='
+            echo '=== Testing Nuncio ARM64 installation on Ubuntu ${{ matrix.ubuntu_version }} ==='
 
             cd /workspace
             export DEBIAN_FRONTEND=noninteractive
@@ -109,39 +109,39 @@ jobs:
             apt-get install -f -y
             apt-get install -y xvfb file
 
-            dpkg -l | grep lyng || (echo '✗ Lyng package not installed' && exit 1)
-            which lyng || (echo '✗ lyng binary not found in PATH' && exit 1)
+            dpkg -l | grep nuncio || (echo '✗ Nuncio package not installed' && exit 1)
+            which nuncio || (echo '✗ nuncio binary not found in PATH' && exit 1)
 
             echo 'Installed files:'
-            dpkg -L lyng | head -20
+            dpkg -L nuncio | head -20
 
             echo 'Verifying ARM64 binary...'
-            file /usr/share/lyng/lyng | grep -iE 'aarch64|arm'
+            file /usr/share/nuncio/nuncio | grep -iE 'aarch64|arm'
             echo '✓ ARM64 binary confirmed'
 
-            echo 'Running lyng --version...'
-            xvfb-run -a lyng --version --no-sandbox > /tmp/version.txt 2>&1 || true
+            echo 'Running nuncio --version...'
+            xvfb-run -a nuncio --version --no-sandbox > /tmp/version.txt 2>&1 || true
             cat /tmp/version.txt
 
             if grep -qE '[0-9]+\.[0-9]+\.[0-9]+' /tmp/version.txt; then
-              echo '✓ lyng --version passed on Ubuntu ${{ matrix.ubuntu_version }} arm64'
+              echo '✓ nuncio --version passed on Ubuntu ${{ matrix.ubuntu_version }} arm64'
             else
-              echo '✗ lyng --version failed on Ubuntu ${{ matrix.ubuntu_version }} arm64'
+              echo '✗ nuncio --version failed on Ubuntu ${{ matrix.ubuntu_version }} arm64'
               exit 1
             fi
 
             # Verify mailsync binary exists
-            if [ -f /usr/share/lyng/mailsync ]; then
-              MAILSYNC_PATH=/usr/share/lyng/mailsync
-            elif [ -f /usr/share/lyng/mailsync.bin ]; then
-              MAILSYNC_PATH=/usr/share/lyng/mailsync.bin
-            elif [ -f /usr/share/lyng/resources/app.asar.unpacked/mailsync ]; then
-              MAILSYNC_PATH=/usr/share/lyng/resources/app.asar.unpacked/mailsync
-            elif [ -f /usr/share/lyng/resources/app.asar.unpacked/mailsync.bin ]; then
-              MAILSYNC_PATH=/usr/share/lyng/resources/app.asar.unpacked/mailsync.bin
+            if [ -f /usr/share/nuncio/mailsync ]; then
+              MAILSYNC_PATH=/usr/share/nuncio/mailsync
+            elif [ -f /usr/share/nuncio/mailsync.bin ]; then
+              MAILSYNC_PATH=/usr/share/nuncio/mailsync.bin
+            elif [ -f /usr/share/nuncio/resources/app.asar.unpacked/mailsync ]; then
+              MAILSYNC_PATH=/usr/share/nuncio/resources/app.asar.unpacked/mailsync
+            elif [ -f /usr/share/nuncio/resources/app.asar.unpacked/mailsync.bin ]; then
+              MAILSYNC_PATH=/usr/share/nuncio/resources/app.asar.unpacked/mailsync.bin
             else
               echo '✗ mailsync binary not found'
-              ls -la /usr/share/lyng/ | head -30
+              ls -la /usr/share/nuncio/ | head -30
               exit 1
             fi
 
@@ -160,7 +160,7 @@ jobs:
               exit 1
             fi
 
-            echo '✓ Lyng ARM64 installation test passed on Ubuntu ${{ matrix.ubuntu_version }}'
+            echo '✓ Nuncio ARM64 installation test passed on Ubuntu ${{ matrix.ubuntu_version }}'
           "
 
   test-fedora:
@@ -173,53 +173,53 @@ jobs:
       - name: Download RPM artifact
         uses: actions/download-artifact@v8
         with:
-          name: lyng-arm64-rpm
+          name: nuncio-arm64-rpm
 
       - name: Test installation on Fedora ${{ matrix.fedora_version }} (arm64)
         run: |
           docker run --rm --platform linux/arm64 -v ${{ github.workspace }}:/workspace fedora:${{ matrix.fedora_version }} bash -c "
             set -e
-            echo '=== Testing Lyng ARM64 installation on Fedora ${{ matrix.fedora_version }} ==='
+            echo '=== Testing Nuncio ARM64 installation on Fedora ${{ matrix.fedora_version }} ==='
 
             cd /workspace
             dnf install -y xorg-x11-server-Xvfb which alsa-lib
 
             dnf install -y *.rpm
 
-            rpm -q lyng || (echo '✗ Lyng package not installed' && exit 1)
-            which lyng || (echo '✗ lyng binary not found in PATH' && exit 1)
+            rpm -q nuncio || (echo '✗ Nuncio package not installed' && exit 1)
+            which nuncio || (echo '✗ nuncio binary not found in PATH' && exit 1)
 
             echo 'Installed files:'
-            rpm -ql lyng | head -20
+            rpm -ql nuncio | head -20
 
-            echo 'Running lyng --version...'
-            xvfb-run -a lyng --version --no-sandbox > /tmp/version.txt 2>&1 || true
+            echo 'Running nuncio --version...'
+            xvfb-run -a nuncio --version --no-sandbox > /tmp/version.txt 2>&1 || true
             cat /tmp/version.txt
 
             if grep -qE '[0-9]+\.[0-9]+\.[0-9]+' /tmp/version.txt; then
-              echo '✓ lyng --version passed on Fedora ${{ matrix.fedora_version }} arm64'
+              echo '✓ nuncio --version passed on Fedora ${{ matrix.fedora_version }} arm64'
             else
-              echo '✗ lyng --version failed on Fedora ${{ matrix.fedora_version }} arm64'
+              echo '✗ nuncio --version failed on Fedora ${{ matrix.fedora_version }} arm64'
               exit 1
             fi
 
             # Verify mailsync binary exists
-            if [ -f /usr/share/lyng/mailsync ]; then
-              MAILSYNC_PATH=/usr/share/lyng/mailsync
-            elif [ -f /usr/share/lyng/mailsync.bin ]; then
-              MAILSYNC_PATH=/usr/share/lyng/mailsync.bin
-            elif [ -f /usr/share/lyng/resources/app.asar.unpacked/mailsync ]; then
-              MAILSYNC_PATH=/usr/share/lyng/resources/app.asar.unpacked/mailsync
-            elif [ -f /usr/share/lyng/resources/app.asar.unpacked/mailsync.bin ]; then
-              MAILSYNC_PATH=/usr/share/lyng/resources/app.asar.unpacked/mailsync.bin
-            elif [ -f /usr/local/share/lyng/mailsync ]; then
-              MAILSYNC_PATH=/usr/local/share/lyng/mailsync
-            elif [ -f /usr/local/share/lyng/mailsync.bin ]; then
-              MAILSYNC_PATH=/usr/local/share/lyng/mailsync.bin
+            if [ -f /usr/share/nuncio/mailsync ]; then
+              MAILSYNC_PATH=/usr/share/nuncio/mailsync
+            elif [ -f /usr/share/nuncio/mailsync.bin ]; then
+              MAILSYNC_PATH=/usr/share/nuncio/mailsync.bin
+            elif [ -f /usr/share/nuncio/resources/app.asar.unpacked/mailsync ]; then
+              MAILSYNC_PATH=/usr/share/nuncio/resources/app.asar.unpacked/mailsync
+            elif [ -f /usr/share/nuncio/resources/app.asar.unpacked/mailsync.bin ]; then
+              MAILSYNC_PATH=/usr/share/nuncio/resources/app.asar.unpacked/mailsync.bin
+            elif [ -f /usr/local/share/nuncio/mailsync ]; then
+              MAILSYNC_PATH=/usr/local/share/nuncio/mailsync
+            elif [ -f /usr/local/share/nuncio/mailsync.bin ]; then
+              MAILSYNC_PATH=/usr/local/share/nuncio/mailsync.bin
             else
               echo '✗ mailsync binary not found'
-              rpm -ql lyng | grep -i mailsync || echo 'No mailsync found in package'
-              ls -la /usr/share/lyng/ | head -30
+              rpm -ql nuncio | grep -i mailsync || echo 'No mailsync found in package'
+              ls -la /usr/share/nuncio/ | head -30
               exit 1
             fi
 
@@ -238,5 +238,5 @@ jobs:
               exit 1
             fi
 
-            echo '✓ Lyng ARM64 installation test passed on Fedora ${{ matrix.fedora_version }}'
+            echo '✓ Nuncio ARM64 installation test passed on Fedora ${{ matrix.fedora_version }}'
           "

@@ -48,7 +48,7 @@ describe('MessageAIBar', function () {
   const originalCreateObjectURL = (URL as any).createObjectURL;
 
   beforeEach(() => {
-    (URL as any).createObjectURL = () => 'blob:lyng-test';
+    (URL as any).createObjectURL = () => 'blob:nuncio-test';
     (URL as any).revokeObjectURL = () => {};
     (window as any).Audio = class {
       onended: (() => void) | null = null;

@@ -1,14 +1,14 @@
 {
-  "name": "lyng",
-  "productName": "Lyng",
-  "desktopName": "Lyng.desktop",
+  "name": "nuncio",
+  "productName": "Nuncio",
+  "desktopName": "Nuncio.desktop",
   "version": "1.26.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Bojanni050/lyng.git"
   },
   "commitHash": "COMMIT_INSERTED_DURING_PACKAGING",
-  "description": "Lyng - a local-first mail client, forked from Mailspring (GPL-3.0)",
+  "description": "Nuncio - a local-first mail client, forked from Mailspring (GPL-3.0)",
   "license": "GPL-3.0",
   "main": "./src/browser/main.js",
   "dependencies": {

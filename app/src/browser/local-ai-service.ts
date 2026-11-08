@@ -292,7 +292,7 @@ class LocalAIService {
     if (!modelPath) return Promise.reject(new Error('The local model is not downloaded.'));
 
     const worker = utilityProcess.fork(unpacked(path.join(__dirname, 'local-ai-worker.js')), [], {
-      serviceName: 'Lyng Local AI',
+      serviceName: 'Nuncio Local AI',
     });
     this.worker = worker;
     worker.on('message', ({ id, result, error }) => {
@@ -334,7 +334,7 @@ export type LocalAIStatus = ReturnType<LocalAIService['status']>;
 
 function trusted(event: IpcMainInvokeEvent) {
   if (!isMailspringWindowContents(event.sender)) {
-    throw new Error('Local AI is only available to Lyng windows.');
+    throw new Error('Local AI is only available to Nuncio windows.');
   }
 }
 

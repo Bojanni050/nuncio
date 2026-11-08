@@ -83,7 +83,7 @@ class SendLaterButton extends Component<SendLaterButtonProps, SendLaterButtonSta
         await FeatureUsageStore.markUsedOrUpgrade('send-later', {
           headerText: localized('All Scheduled Sends Used'),
           rechargeText: `${localized(
-            `You can schedule sending of %1$@ emails each %2$@ with Lyng Basic.`
+            `You can schedule sending of %1$@ emails each %2$@ with Nuncio Basic.`
           )} ${localized('Upgrade to Pro today!')}`,
           iconUrl: 'mailspring://send-later/assets/ic-send-later-modal@2x.png',
         });

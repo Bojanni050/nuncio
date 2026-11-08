@@ -51,7 +51,7 @@ const ProTourFeatures = [
     icon: `icon-composer-reminders.png`,
     title: localized(`Follow-up reminders`),
     text: localized(
-      `Never forget to follow up! Lyng reminds you if your messages haven't received replies.`
+      `Never forget to follow up! Nuncio reminds you if your messages haven't received replies.`
     ),
   },
   {
@@ -168,7 +168,7 @@ class PreferencesIdentity extends React.Component<
           <div style={{ display: 'flex', alignItems: 'flex-start' }}>
             <div className="basic-explanation" style={{ display: 'flex' }}>
               {localizedReactFragment(
-                `You are not signed in to Lyng. Link the app to a free Lyng ID to use great free features like send later and snoozing, or upgrade to Lyng Pro for unlimited message translation and more.`
+                `You are not signed in to Nuncio. Link the app to a free Nuncio ID to use great free features like send later and snoozing, or upgrade to Nuncio Pro for unlimited message translation and more.`
               )}
               <div
                 className="btn btn-emphasis"
@@ -176,7 +176,7 @@ class PreferencesIdentity extends React.Component<
                 style={{ verticalAlign: 'top', flexShrink: 0, marginLeft: 30 }}
               >
                 <RetinaImg name="ic-upgrade.png" mode={RetinaImg.Mode.ContentIsMask} />{' '}
-                {localized(`Setup Lyng ID`)}
+                {localized(`Setup Nuncio ID`)}
               </div>
             </div>
           </div>
@@ -196,12 +196,12 @@ class PreferencesIdentity extends React.Component<
           <div className="basic-explanation">
             {localizedReactFragment(
               `You are using %@, which is free! You can try pro features like snooze, send later, read receipts and reminders a few times a week.`,
-              <strong>{localized('Lyng Basic')}</strong>
+              <strong>{localized('Nuncio Basic')}</strong>
             )}
             {process.platform === 'linux' && (
               <span>
                 {localizedReactFragment(
-                  `Lyng is independent %@ software, and subscription revenue allows us spend time maintaining and improving the product.`,
+                  `Nuncio is independent %@ software, and subscription revenue allows us spend time maintaining and improving the product.`,
                   <a href="https://github.com/Bojanni050/lyng/">{localized('open source')}</a>
                 )}
               </span>
@@ -210,7 +210,7 @@ class PreferencesIdentity extends React.Component<
             <br />
             {localizedReactFragment(
               `Upgrade to %@ to use all these great features permanently:`,
-              <a onClick={onLearnMore}>{localized('Lyng Pro')}</a>
+              <a onClick={onLearnMore}>{localized('Nuncio Pro')}</a>
             )}
             <ExploreMailspringSmall />
           </div>
@@ -221,7 +221,7 @@ class PreferencesIdentity extends React.Component<
               <div className="period">{localized('Monthly')}</div>
             </div>
             <OpenIdentityPageButton
-              label={localized('Get Lyng Pro')}
+              label={localized('Get Nuncio Pro')}
               path="/payment"
               source="Preferences Billing"
               campaign="Dashboard"
@@ -241,7 +241,7 @@ class PreferencesIdentity extends React.Component<
     const unpaidNote = effectivePlanName !== planName && (
       <p>
         {localized(
-          `Note: Due to issues with your most recent payment, you've been temporarily downgraded to Lyng %@. Click 'Billing' below to correct the issue.`,
+          `Note: Due to issues with your most recent payment, you've been temporarily downgraded to Nuncio %@. Click 'Billing' below to correct the issue.`,
           effectivePlanName
         )}
       </p>
@@ -251,7 +251,7 @@ class PreferencesIdentity extends React.Component<
         <div>
           {localizedReactFragment(
             `Thank you for using %@ and supporting independent software. Get the most out of your subscription: explore pro features below or visit the %@ to learn more about reminders, templates, activity insights, and more.`,
-            <strong style={{ textTransform: 'capitalize' }}>{`Lyng ${planDisplayName}`}</strong>,
+            <strong style={{ textTransform: 'capitalize' }}>{`Nuncio ${planDisplayName}`}</strong>,
             <a href="https://getmailspring.com/docs/quick-start-guide">
               {localized(`Help Center`)}
             </a>
@@ -382,7 +382,7 @@ const ExploreMailspringSmall: React.FunctionComponent = () => (
 
 const ExploreMailspringPro: React.FunctionComponent = () => (
   <>
-    <div className="feature-explore-title">{localized('Explore Lyng Pro')}</div>
+    <div className="feature-explore-title">{localized('Explore Nuncio Pro')}</div>
     <div className="feature-explore-grid">
       {ProTourFeatures.map((item) => (
         <a key={item.title} className="feature" href={item.link}>

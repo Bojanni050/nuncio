@@ -244,7 +244,7 @@ export class TranslateMessageHeader extends React.Component<
       buttons: [localized('Yes'), localized('Cancel')],
       message: localized('Are you sure?'),
       detail: localized(
-        'Lyng will no longer offer to translate messages written in %@.',
+        'Nuncio will no longer offer to translate messages written in %@.',
         AllLanguages[this.state.detected]
       ),
     });
@@ -270,7 +270,7 @@ export class TranslateMessageHeader extends React.Component<
         <div className="translate-message-header">
           <div className="message with-actions">
             <div className="message-centered">
-              {localized('Lyng has translated this message into %@.', AllLanguages[result.toLang])}
+              {localized('Nuncio has translated this message into %@.', AllLanguages[result.toLang])}
             </div>
           </div>
           <div className="actions">

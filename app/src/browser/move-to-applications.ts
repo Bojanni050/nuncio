@@ -14,7 +14,7 @@ export default function moveToApplications() {
     cancelId: 1,
     title: localized('Move to Applications?'),
     message: localized(
-      'Thanks for downloading Lyng! Would you like to move it to your Applications folder?'
+      'Thanks for downloading Nuncio! Would you like to move it to your Applications folder?'
     ),
   });
 

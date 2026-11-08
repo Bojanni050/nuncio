@@ -32,7 +32,7 @@ export class SyncbackDraftTask extends Task {
       AppEnv.showErrorDialog({
         title: localized('Drafts folder not found'),
         message: localized(
-          "Lyng can't find your Drafts folder. To create and send mail, visit Preferences > Folders and choose a Drafts folder."
+          "Nuncio can't find your Drafts folder. To create and send mail, visit Preferences > Folders and choose a Drafts folder."
         ),
       });
     }

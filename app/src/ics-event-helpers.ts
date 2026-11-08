@@ -500,7 +500,7 @@ export function createICSString(options: CreateEventOptions): string {
 
   // Create VCALENDAR component
   const calendar = new ical.Component(['vcalendar', [], []]);
-  calendar.updatePropertyWithValue('prodid', '-//Lyng//Calendar//EN');
+  calendar.updatePropertyWithValue('prodid', '-//Nuncio//Calendar//EN');
   calendar.updatePropertyWithValue('version', '2.0');
   calendar.updatePropertyWithValue('calscale', 'GREGORIAN');
 
@@ -1480,7 +1480,7 @@ export function createCounterProposal(
   }
 
   const counter = new ical.Component(['vcalendar', [], []]);
-  counter.updatePropertyWithValue('prodid', '-//Lyng//Calendar//EN');
+  counter.updatePropertyWithValue('prodid', '-//Nuncio//Calendar//EN');
   counter.updatePropertyWithValue('version', '2.0');
   counter.updatePropertyWithValue('calscale', 'GREGORIAN');
   counter.updatePropertyWithValue('method', 'COUNTER');
@@ -1548,7 +1548,7 @@ export function occurrenceIcs(masterIcs: string, recurrenceId: ICALTime): string
   }
 
   const calendar = new ical.Component(['vcalendar', [], []]) as ICALComponent;
-  calendar.updatePropertyWithValue('prodid', '-//Lyng//Calendar//EN');
+  calendar.updatePropertyWithValue('prodid', '-//Nuncio//Calendar//EN');
   calendar.updatePropertyWithValue('version', '2.0');
   calendar.addSubcomponent(new ical.Component(vevent.toJSON()));
   syncVTimezones(calendar, ical, recurrenceId.toJSDate());

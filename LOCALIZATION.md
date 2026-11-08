@@ -1,6 +1,6 @@
 # Localization / Internationalization
 
-Lyng supports localization - the app's menus, messages, buttons, and more are loaded from language files based on the user's locale. This makes the app accessible to millions of people around the world and helps it blend in on your desktop!
+Nuncio supports localization - the app's menus, messages, buttons, and more are loaded from language files based on the user's locale. This makes the app accessible to millions of people around the world and helps it blend in on your desktop!
 
 The translation files are inherited from the Mailspring project: an initial translation in ~90 languages based on a database of human-translated email terms and technical phrases (eg: "Archive", "Send message", etc.). If you use your computer in another language and also speak English, contributing translations is a great way to impact the open source project!
 
@@ -27,9 +27,9 @@ The example above shows two examples of variable substitution. Some strings disp
 
 If a string contains multiple placeholders, you can optionally reference the variables by index using the `%2$@` syntax. Using `2` means this placeholder should be replaced with the second placeholder in the English string. This allows you to change the order variables appear, which is important for languages like Japanese.
 
-## Running Lyng with a Specific Locale
+## Running Nuncio with a Specific Locale
 
-It can be useful to run Lyng with a specific locale. To do this, pass the `lang` flag at launch:
+It can be useful to run Nuncio with a specific locale. To do this, pass the `lang` flag at launch:
 
 ```
 npm start -- --lang=de

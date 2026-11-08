@@ -152,7 +152,7 @@ export class MailspringCalendar extends React.Component<
 > {
   /** Distinguishes the editors of events that do not exist yet, so a closing one clears only its own. */
   _newEventSerial = 0;
-  static displayName = 'LyngCalendar';
+  static displayName = 'NuncioCalendar';
 
   static containerStyles = {
     height: '100%',

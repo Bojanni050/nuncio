@@ -28,7 +28,7 @@ class AccountOnboardingSuccess extends Component<{ account: Account }> {
               providerConfig.displayNameShort || providerConfig.displayName
             )}
           </h2>
-          <h3>{localized('Adding your account to Lyng…')}</h3>
+          <h3>{localized('Adding your account to Nuncio…')}</h3>
         </div>
       </div>
     );

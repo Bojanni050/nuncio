@@ -199,7 +199,7 @@ function Reader({ issues, openId, pub, color, onBack, onRead }) {
           </span>
         </span>
         <button onClick={() => ui.showThread(issue.threadId)} className="flex items-center gap-1 text-ms-accent hover:underline">
-          <ExternalLink size={13} /> Open in Lyng
+          <ExternalLink size={13} /> Open in Nuncio
         </button>
         {(web || mailto) && (
           <button onClick={() => unsubscribe(issue.listUnsubscribe)} className="flex items-center gap-1 text-ms-danger hover:underline">

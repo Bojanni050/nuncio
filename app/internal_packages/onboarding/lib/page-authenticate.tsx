@@ -6,7 +6,7 @@ import * as OnboardingActions from './onboarding-actions';
  *
  * Upstream loads `${identityServer}/onboarding?...` in a Webview, so the first-run screens are
  * HTML served by the vendor's identity service — including a step threatening to disable features
- * unless you create an account. Lyng has no identity server and no cloud: that page would be a
+ * unless you create an account. Nuncio has no identity server and no cloud: that page would be a
  * remote dependency, and its warning would be false here, so the step is local and describes what
  * this build can actually do.
  *
@@ -31,7 +31,7 @@ export default class AuthenticatePage extends React.Component<{ account?: object
           <h1>{localized('No account, no cloud')}</h1>
           <p className="lede">
             {localized(
-              'Lyng keeps your mail on this machine. No sign-up, no subscription — here is what works right away.'
+              'Nuncio keeps your mail on this machine. No sign-up, no subscription — here is what works right away.'
             )}
           </p>
           <div className="feature-columns">

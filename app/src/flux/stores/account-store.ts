@@ -127,7 +127,7 @@ class _AccountStore extends MailspringStore {
     });
 
     if (message && AppEnv.isMainWindow()) {
-      AppEnv.showErrorDialog(`Lyng was unable to load your account preferences.\n\n${message}`);
+      AppEnv.showErrorDialog(`Nuncio was unable to load your account preferences.\n\n${message}`);
     }
   };
 

@@ -62,7 +62,7 @@ export default class ThreadSharingPopover extends React.Component<
       AppEnv.reportError(error);
       AppEnv.showErrorDialog(
         localized(
-          `Sorry, we were unable to contact the Lyng servers to share this thread.\n\n%@`,
+          `Sorry, we were unable to contact the Nuncio servers to share this thread.\n\n%@`,
           error.message
         )
       );
@@ -95,7 +95,7 @@ export default class ThreadSharingPopover extends React.Component<
               {localized('Syncing') + '...'}
               <div className="meta">
                 {localized(
-                  `Lyng is syncing this thread and its attachments to the cloud. For long threads, this may take a moment.`
+                  `Nuncio is syncing this thread and its attachments to the cloud. For long threads, this may take a moment.`
                 )}
               </div>
             </label>

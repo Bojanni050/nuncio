@@ -150,10 +150,10 @@ class KeyManager {
         // Stored-but-unreadable is not the same as nothing stored. Resolving to an empty keyset
         // would let the next read-modify-write mutator persist it, erasing every account's
         // password over a locked keyring or a secret service that has not started yet.
-        console.error('Lyng could not read saved passwords.', asyncErr, syncErr);
+        console.error('Nuncio could not read saved passwords.', asyncErr, syncErr);
         this._reportFatalError(
           new Error(
-            localized('Lyng could not read your saved passwords and cannot continue.') +
+            localized('Nuncio could not read your saved passwords and cannot continue.') +
               this._encryptionUnavailableHint()
           )
         );
@@ -177,7 +177,7 @@ class KeyManager {
       try {
         await this._writeKeyHash(keys);
       } catch (err) {
-        console.warn('Lyng could not re-encrypt your saved passwords with the new key.', err);
+        console.warn('Nuncio could not re-encrypt your saved passwords with the new key.', err);
       }
     }
 
@@ -187,7 +187,7 @@ class KeyManager {
   _encryptionUnavailableHint() {
     return process.platform === 'linux'
       ? localized(
-          ' On Linux, Lyng stores passwords in your desktop keyring (KWallet, GNOME Keyring, or another Secret Service provider). Please make sure it is installed, running, and unlocked, then restart Lyng.'
+          ' On Linux, Nuncio stores passwords in your desktop keyring (KWallet, GNOME Keyring, or another Secret Service provider). Please make sure it is installed, running, and unlocked, then restart Nuncio.'
         )
       : '';
   }
@@ -196,7 +196,7 @@ class KeyManager {
     const unavailable = () =>
       new Error(
         localized(
-          `Lyng could not store your password securely because encryption is not available on this system.`
+          `Nuncio could not store your password securely because encryption is not available on this system.`
         ) + this._encryptionUnavailableHint()
       );
     if (!(await secureStorage.isAvailable())) {
@@ -220,11 +220,11 @@ class KeyManager {
 
     const clickedButton = require('@electron/remote').dialog.showMessageBoxSync({
       type: 'error',
-      buttons: [localized('Lyng Help'), localized('Quit')],
+      buttons: [localized('Nuncio Help'), localized('Quit')],
       message:
         err.message ||
         localized(
-          `Lyng could not store your password securely. For more information, visit %@`,
+          `Nuncio could not store your password securely. For more information, visit %@`,
           'https://getmailspring.com/docs/password-management-error'
         ),
     });

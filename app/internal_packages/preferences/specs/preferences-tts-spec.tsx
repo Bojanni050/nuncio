@@ -71,7 +71,7 @@ describe('PreferencesTTS', function () {
       }
       pause() {}
     };
-    (URL as any).createObjectURL = () => 'blob:lyng-test';
+    (URL as any).createObjectURL = () => 'blob:nuncio-test';
     (URL as any).revokeObjectURL = () => {};
   });
 
@@ -140,7 +140,7 @@ describe('PreferencesTTS', function () {
 
     const speech = calls.find((call) => call.url.endsWith('/audio/speech'));
     expect(speech.url).toBe('https://api.mistral.ai/v1/audio/speech');
-    expect(JSON.parse(String(speech.init.body)).input).toContain('This is Lyng.');
+    expect(JSON.parse(String(speech.init.body)).input).toContain('This is Nuncio.');
     expect(container.textContent).toContain('Playing a test sentence through');
   });
 

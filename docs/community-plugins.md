@@ -1,6 +1,6 @@
-# Community Plugins for Lyng
+# Community Plugins for Nuncio
 
-This document lists known third-party plugins (built for Mailspring's plugin API, which Lyng inherits) and backend replacements found on GitHub.
+This document lists known third-party plugins (built for Mailspring's plugin API, which Nuncio inherits) and backend replacements found on GitHub.
 
 ## Official Resources
 
@@ -14,7 +14,7 @@ This document lists known third-party plugins (built for Mailspring's plugin API
 
 | Repository | Description | Stars |
 |------------|-------------|-------|
-| [Striffly/mailspring-avatars](https://github.com/Striffly/mailspring-avatars) | Adds avatars to contacts in Mailspring/Lyng | ⭐76 |
+| [Striffly/mailspring-avatars](https://github.com/Striffly/mailspring-avatars) | Adds avatars to contacts in Mailspring/Nuncio | ⭐76 |
 | [bnesimsysadmin/AI-assistant-mailspring-plugin](https://github.com/bnesimsysadmin/AI-assistant-mailspring-plugin) | AI assistant for composing emails | - |
 | [smartium/Mailspring-Plugin](https://github.com/smartium/Mailspring-Plugin) | Community plugin | - |
 
@@ -78,8 +78,8 @@ To create your own plugin, see:
 ### Plugin Installation
 
 Plugins should be copied or symlinked to:
-- **macOS**: `~/Library/Application Support/Lyng/packages/`
-- **Linux**: `~/.config/Lyng/packages/`
-- **Windows**: `%APPDATA%/Lyng/packages/`
+- **macOS**: `~/Library/Application Support/Nuncio/packages/`
+- **Linux**: `~/.config/Nuncio/packages/`
+- **Windows**: `%APPDATA%/Nuncio/packages/`
 
-You can find this directory by going to **Developer > Show Mailsync Logs** in Lyng.
+You can find this directory by going to **Developer > Show Mailsync Logs** in Nuncio.

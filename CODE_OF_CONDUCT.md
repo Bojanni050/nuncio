@@ -63,7 +63,7 @@ possible, rather than starting duplicate conversations.
 
 Additionally, **no spam**. Do not post any content which is intended primarily
 for promotional purposes or creating backlinks. The one exception to this rule
-is promoting Lyng plugins and themes, in the appropriate dedicated
+is promoting Nuncio plugins and themes, in the appropriate dedicated
 category, or in response to a question, issue, or feature request as
 appropriate.
 

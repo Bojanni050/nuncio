@@ -111,7 +111,7 @@ export default class MetadataComposerToggleButton extends React.Component<
         await FeatureUsageStore.displayUpgradeModal(pluginId, {
           headerText: localized(`All used up!`),
           rechargeText: `${localized(
-            `You can get open and click notifications for %1$@ emails each %2$@ with Lyng Basic.`
+            `You can get open and click notifications for %1$@ emails each %2$@ with Nuncio Basic.`
           )} ${localized('Upgrade to Pro today!')}`,
           iconUrl: `mailspring://${pluginId}/assets/ic-modal-image@2x.png`,
         });

@@ -326,7 +326,7 @@ const TESTS = [
     async () => {
       const t = Date.now();
       try {
-        window.alert('Lyng: your session expired');
+        window.alert('Nuncio: your session expired');
       } catch (e) {
         return BLOCKED(e.message);
       }

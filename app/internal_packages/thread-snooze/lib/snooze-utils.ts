@@ -64,10 +64,10 @@ export async function markUnreadOrResurfaceThreads(threads: Thread[], source: st
     // send a hidden email that will mark the thread as unread and bring it
     // to the top of your inbox in any mail client
     const body = `
-    <strong>${localized('Lyng Reminder')}:</strong> ${localized(
-      'This thread has been moved to the top of your inbox by Lyng.'
+    <strong>${localized('Nuncio Reminder')}:</strong> ${localized(
+      'This thread has been moved to the top of your inbox by Nuncio.'
     )}</p>
-    <p>--${localized('The Lyng Team')}</p>`;
+    <p>--${localized('The Nuncio Team')}</p>`;
 
     for (const thread of threads) {
       const draft = await DraftFactory.createDraftForResurfacing(thread, null, body);

@@ -25,7 +25,7 @@ const _readFile = Promise.promisify(fs.readFile);
 
 /** Optional bearer for the share uploads; leave empty when the server runs without API_TOKEN. */
 function shareAuthorization() {
-  const token = AppEnv.config.get('core.sharing.apiToken') || process.env.LYNG_SHARING_TOKEN || '';
+  const token = AppEnv.config.get('core.sharing.apiToken') || process.env.NUNCIO_SHARING_TOKEN || '';
   return token ? { Authorization: `Bearer ${token}` } : {};
 }
 

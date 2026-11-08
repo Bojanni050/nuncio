@@ -1,8 +1,8 @@
 {
-  "name": "lyng-root",
+  "name": "nuncio-root",
   "version": "0.0.1",
-  "description": "Packages required to develop and build Lyng",
-  "author": "Lyng",
+  "description": "Packages required to develop and build Nuncio",
+  "author": "Nuncio",
   "license": "GPL-3.0",
   "repository": {
     "type": "git",

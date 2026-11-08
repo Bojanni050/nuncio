@@ -387,13 +387,13 @@ export class ViewHost extends React.Component<ViewHostProps, ViewHostState> {
       <div className="view-host-cover view-host-version">
         <div className="view-host-cover-title">
           {tooOld
-            ? localized('This View was built for an older version of Lyng.')
-            : localized('This View needs a newer version of Lyng.')}
+            ? localized('This View was built for an older version of Nuncio.')
+            : localized('This View needs a newer version of Nuncio.')}
         </div>
         <div className="view-host-cover-detail">
           {tooOld
             ? localized('Rebuild it with AI to update it, or remove it.')
-            : localized('Update Lyng to use it.')}
+            : localized('Update Nuncio to use it.')}
         </div>
         <div className="view-host-cover-actions">
           {tooOld && (

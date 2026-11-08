@@ -39,9 +39,9 @@ const JSON_RPC_SERVER_ERROR = -32000;
 const JSON_RPC_INVALID_REQUEST = -32600;
 
 const NOT_RUNNING_MESSAGE =
-  'Lyng is not running, or its MCP server is disabled. Open Lyng and check Preferences > MCP Server.';
+  'Nuncio is not running, or its MCP server is disabled. Open Nuncio and check Preferences > MCP Server.';
 const DISABLED_MESSAGE =
-  'The Lyng MCP server is turned off. Enable it in Lyng under Preferences > MCP Server.';
+  'The Nuncio MCP server is turned off. Enable it in Nuncio under Preferences > MCP Server.';
 
 // stderr is persisted by Claude Desktop, so never log more than a prefix of
 // client or server payloads.
@@ -68,7 +68,7 @@ function readServerSettings(configDir) {
   try {
     parsed = JSON.parse(fs.readFileSync(path.join(configDir, 'config.json'), 'utf8'));
   } catch (err) {
-    throw new Error(`Could not read Lyng's config.json in ${configDir}: ${err.message}`);
+    throw new Error(`Could not read Nuncio's config.json in ${configDir}: ${err.message}`);
   }
   const mcp = (parsed['*'] && parsed['*'].core && parsed['*'].core.mcp) || {};
   if (!mcp.enabled || !mcp.token) {
@@ -209,7 +209,7 @@ class Bridge {
         return await this.post(message);
       } catch (err) {
         if (!isConnectionError(err) || attempt >= CONNECT_RETRY_LIMIT) throw err;
-        if (attempt === 1) log('Lyng MCP server is not reachable yet, waiting for it…');
+        if (attempt === 1) log('Nuncio MCP server is not reachable yet, waiting for it…');
         await new Promise((r) => setTimeout(r, CONNECT_RETRY_MS));
       }
     }
@@ -225,7 +225,7 @@ class Bridge {
   }
 
   async _reinitialize() {
-    log('Session was lost (Lyng restarted?) — re-initializing.');
+    log('Session was lost (Nuncio restarted?) — re-initializing.');
     this.sessionId = null;
     this.protocolVersion = null;
     const id = `mailspring-bridge-reinit-${++this.reinitCount}`;
@@ -271,7 +271,7 @@ class Bridge {
           ? serverError.error
           : {
               code: JSON_RPC_SERVER_ERROR,
-              message: `Lyng MCP server returned HTTP ${res.status}`,
+              message: `Nuncio MCP server returned HTTP ${res.status}`,
             },
       });
       return;
@@ -290,7 +290,7 @@ class Bridge {
         id: message.id,
         error: {
           code: JSON_RPC_SERVER_ERROR,
-          message: 'No response from the Lyng MCP server',
+          message: 'No response from the Nuncio MCP server',
         },
       });
     }

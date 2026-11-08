@@ -1,6 +1,6 @@
-# Lyng Playwright E2E Testing Guide
+# Nuncio Playwright E2E Testing Guide
 
-This guide captures patterns, pitfalls, and debugging strategies for writing Playwright E2E tests against the Lyng Electron app. It is intended for both human developers and AI agents.
+This guide captures patterns, pitfalls, and debugging strategies for writing Playwright E2E tests against the Nuncio Electron app. It is intended for both human developers and AI agents.
 
 ## Testing Philosophy
 
@@ -98,7 +98,7 @@ Key points:
 
 ### Pages and Windows
 
-Lyng is a multi-window Electron app. The main window renders the thread list and message view. Popout windows are opened for new-message composition and thread popouts.
+Nuncio is a multi-window Electron app. The main window renders the thread list and message view. Popout windows are opened for new-message composition and thread popouts.
 
 ```typescript
 // mainWindow is the primary renderer — thread list, message view, sidebar
@@ -143,11 +143,11 @@ The capture system uses `page.evaluate` to listen on `Actions.queueTask` / `Acti
 
 ### Executing JavaScript in the Renderer
 
-Lyng disables `window.eval()` for security, but `app/static/index.js` skips that when `process.env.PLAYWRIGHT` is set (which `launchApp` does), so `page.evaluate`, `locator.evaluate`, `locator.evaluateAll`, and `locator.allTextContents` all work in tests. Prefer locator assertions (`toHaveText`, `toHaveCount`, `toHaveValue`) where they fit, and reach for `evaluate` when you need DOM or store state they can't express.
+Nuncio disables `window.eval()` for security, but `app/static/index.js` skips that when `process.env.PLAYWRIGHT` is set (which `launchApp` does), so `page.evaluate`, `locator.evaluate`, `locator.evaluateAll`, and `locator.allTextContents` all work in tests. Prefer locator assertions (`toHaveText`, `toHaveCount`, `toHaveValue`) where they fit, and reach for `evaluate` when you need DOM or store state they can't express.
 
 The `Content-Security-Policy` in `app/static/index.html` (no `'unsafe-eval'`) stays in force under the harness; it doesn't interfere because Playwright evaluates through the DevTools protocol, which Chromium exempts from page CSP.
 
-If you see `Sorry, Lyng does not support window.eval()` in a test, the app was launched without the `PLAYWRIGHT` env var — check that the test goes through `launchApp`.
+If you see `Sorry, Nuncio does not support window.eval()` in a test, the app was launched without the `PLAYWRIGHT` env var — check that the test goes through `launchApp`.
 
 To run JS in the main window from the main process (for example before the page is ready to receive `evaluate` calls), use the `executeInRenderer` pattern (defined in helpers.ts):
 
@@ -235,7 +235,7 @@ This matters because:
 
 ### 6. Native Dialogs and DevTools
 
-Lyng may show native dialogs (keychain errors, sync errors) that block tests. The `launchApp()` helper mocks these:
+Nuncio may show native dialogs (keychain errors, sync errors) that block tests. The `launchApp()` helper mocks these:
 
 ```typescript
 await electronApp.evaluate(({ dialog }) => {
@@ -352,13 +352,13 @@ const itemCount = await mainWindow.evaluate(() => {
   return document.querySelectorAll('.list-item').length;
 });
 
-// Or inspect Lyng stores via $m
+// Or inspect Nuncio stores via $m
 const threadId = await mainWindow.evaluate(() => {
   return window.$m.FocusedContentStore.focused('thread')?.id;
 });
 ```
 
-Note: `evaluate` relies on `window.eval`, which Lyng only leaves enabled when launched with `PLAYWRIGHT=1` (see "Executing JavaScript in the Renderer").
+Note: `evaluate` relies on `window.eval`, which Nuncio only leaves enabled when launched with `PLAYWRIGHT=1` (see "Executing JavaScript in the Renderer").
 
 ## Patterns for Common Test Scenarios
 

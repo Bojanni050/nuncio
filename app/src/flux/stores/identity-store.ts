@@ -11,7 +11,7 @@ import { Disposable } from 'event-kit';
 import { debounce } from 'underscore';
 
 // Note this key name is used when migrating to Mailspring Pro accounts from old N1.
-const PASSWORD_NAME = 'Lyng Account';
+const PASSWORD_NAME = 'Nuncio Account';
 
 export interface IIdentity {
   id: string;
@@ -143,7 +143,7 @@ class _IdentityStore extends MailspringStore {
       : null;
 
     if (this._identity && !this._identity.token) {
-      const message = `Your Lyng ID password could not be loaded from your keychain. Please visit Preferences > Subscription and click "Setup Lyng ID" to sign in to your Lyng account again.\n\nYour Lyng ID email address is ${this._identity.emailAddress}.`;
+      const message = `Your Nuncio ID password could not be loaded from your keychain. Please visit Preferences > Subscription and click "Setup Nuncio ID" to sign in to your Nuncio account again.\n\nYour Nuncio ID email address is ${this._identity.emailAddress}.`;
       console.warn(message);
 
       if (!this._displayedPasswordError) {

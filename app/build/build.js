@@ -300,7 +300,7 @@ function buildPackagerOptions() {
     appVersion: packageJSON.version,
     platform,
     protocols: [
-      { name: 'Lyng Protocol', schemes: ['mailspring'] },
+      { name: 'Nuncio Protocol', schemes: ['mailspring'] },
       { name: 'Mailto Protocol', schemes: ['mailto'] },
     ],
     dir: appDir,
@@ -308,11 +308,11 @@ function buildPackagerOptions() {
     tmpdir,
     arch: packagingArch,
     icon: {
-      darwin: path.resolve(appDir, 'build', 'resources', 'mac', 'lyng.icns'),
-      win32: path.resolve(appDir, 'build', 'resources', 'win', 'lyng-square.ico'),
+      darwin: path.resolve(appDir, 'build', 'resources', 'mac', 'nuncio.icns'),
+      win32: path.resolve(appDir, 'build', 'resources', 'win', 'nuncio-square.ico'),
       linux: undefined,
     }[platform],
-    name: { darwin: 'Lyng', win32: 'Lyng', linux: 'lyng' }[platform],
+    name: { darwin: 'Nuncio', win32: 'Nuncio', linux: 'nuncio' }[platform],
     appCopyright: `Copyright (C) 2014-${new Date().getFullYear()} Foundry 376, LLC. All rights reserved.`,
     derefSymlinks: false,
     asar: {
@@ -410,7 +410,7 @@ function buildPackagerOptions() {
             // cannot match to a profile scoped to that binary.
             // Note: electron-osx-sign passes the .app bundle path (not the
             // inner executable path) when signing the top-level app bundle.
-            const isMainExecutable = filePath.endsWith('/Lyng.app');
+            const isMainExecutable = filePath.endsWith('/Nuncio.app');
             return {
               hardenedRuntime: true,
               entitlements: path.resolve(
@@ -434,9 +434,9 @@ function buildPackagerOptions() {
       : undefined,
     win32metadata: {
       CompanyName: 'Foundry 376, LLC',
-      FileDescription: 'Lyng',
+      FileDescription: 'Nuncio',
       LegalCopyright: `Copyright (C) 2014-${new Date().getFullYear()} Foundry 376, LLC. All rights reserved.`,
-      ProductName: 'Lyng',
+      ProductName: 'Nuncio',
     },
     // NOTE: The following plist keys can NOT be set in the extra.plist since
     // they are manually overridden by electron-packager based on this config:
@@ -484,15 +484,15 @@ async function runPackager() {
 }
 
 async function createMacZip() {
-  const zipPath = path.join(outputDir, 'Lyng.zip');
+  const zipPath = path.join(outputDir, 'Nuncio.zip');
   if (fs.existsSync(zipPath)) {
     fs.unlinkSync(zipPath);
   }
   const arch = process.env.OVERRIDE_TO_INTEL ? 'x64' : process.arch;
-  const cwd = path.join(outputDir, `Lyng-darwin-${arch}`);
+  const cwd = path.join(outputDir, `Nuncio-darwin-${arch}`);
   await spawn({
     cmd: 'zip',
-    args: ['-9', '-y', '-r', '-9', '-X', zipPath, 'Lyng.app'],
+    args: ['-9', '-y', '-r', '-9', '-X', zipPath, 'Nuncio.app'],
     opts: { cwd },
   });
   console.log(`>> Created ${zipPath}`);
@@ -510,7 +510,7 @@ const linuxArch = { ia32: 'i386', x64: 'amd64', arm64: 'arm64' }[process.arch];
 async function createDebInstaller() {
   if (!linuxArch) throw new Error(`Unsupported arch ${process.arch}`);
 
-  const contentsDir = path.join(outputDir, `lyng-linux-${process.arch}`);
+  const contentsDir = path.join(outputDir, `nuncio-linux-${process.arch}`);
   const linuxAssetsDir = path.resolve(path.join(buildDir, 'resources', 'linux'));
 
   // `du` failures (e.g. permission errors) are non-fatal — fall back to a
@@ -531,28 +531,28 @@ async function createDebInstaller() {
     description: packageJSON.description,
     productName: packageJSON.productName,
     desktopName: packageJSON.desktopName || `${packageJSON.name}.desktop`,
-    linuxShareDir: '/usr/share/lyng',
+    linuxShareDir: '/usr/share/nuncio',
     arch: linuxArch,
     section: 'mail',
-    maintainer: 'Lyng Team <Bojanni050@users.noreply.github.com>',
+    maintainer: 'Nuncio Team <Bojanni050@users.noreply.github.com>',
     installedSize,
   };
   writeFromTemplate(path.join(linuxAssetsDir, 'debian', 'control.in'), data);
-  writeFromTemplate(path.join(linuxAssetsDir, 'Lyng.desktop.in'), data);
-  writeFromTemplate(path.join(linuxAssetsDir, 'lyng.metainfo.xml.in'), data);
+  writeFromTemplate(path.join(linuxAssetsDir, 'Nuncio.desktop.in'), data);
+  writeFromTemplate(path.join(linuxAssetsDir, 'nuncio.metainfo.xml.in'), data);
 
   const icon = path.join(appDir, 'build', 'resources', 'linux', 'icons', '512.png');
   await spawn({
     cmd: path.join(appDir, 'script', 'mkdeb'),
     args: [packageJSON.version, linuxArch, icon, linuxAssetsDir, contentsDir, outputDir],
   });
-  console.log(`Created ${outputDir}/lyng-${packageJSON.version}-${linuxArch}.deb`);
+  console.log(`Created ${outputDir}/nuncio-${packageJSON.version}-${linuxArch}.deb`);
 }
 
 async function createRpmInstaller() {
   if (!linuxArch) throw new Error(`Unsupported arch ${process.arch}`);
 
-  const contentsDir = path.join(outputDir, `lyng-linux-${process.arch}`);
+  const contentsDir = path.join(outputDir, `nuncio-linux-${process.arch}`);
   const linuxAssetsDir = path.resolve(path.join(buildDir, 'resources', 'linux'));
   const rpmDir = path.join(outputDir, 'rpm');
   if (fs.existsSync(rpmDir)) {
@@ -565,14 +565,14 @@ async function createRpmInstaller() {
     description: packageJSON.description,
     productName: packageJSON.productName,
     desktopName: packageJSON.desktopName || `${packageJSON.name}.desktop`,
-    linuxShareDir: '/usr/local/share/lyng',
+    linuxShareDir: '/usr/local/share/nuncio',
     linuxAssetsDir,
     contentsDir,
   };
 
-  writeFromTemplate(path.join(linuxAssetsDir, 'redhat', 'lyng.spec.in'), templateData);
-  writeFromTemplate(path.join(linuxAssetsDir, 'Lyng.desktop.in'), templateData);
-  writeFromTemplate(path.join(linuxAssetsDir, 'lyng.metainfo.xml.in'), templateData);
+  writeFromTemplate(path.join(linuxAssetsDir, 'redhat', 'nuncio.spec.in'), templateData);
+  writeFromTemplate(path.join(linuxAssetsDir, 'Nuncio.desktop.in'), templateData);
+  writeFromTemplate(path.join(linuxAssetsDir, 'nuncio.metainfo.xml.in'), templateData);
 
   await spawn({
     cmd: path.join(appDir, 'script', 'mkrpm'),

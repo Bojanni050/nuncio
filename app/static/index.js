@@ -2,7 +2,7 @@
 // in the page, so the hardening is skipped under the e2e harness.
 if (!process.env.PLAYWRIGHT) {
   window.eval = global.eval = function () {
-    throw new Error('Sorry, Lyng does not support window.eval() for security reasons.');
+    throw new Error('Sorry, Nuncio does not support window.eval() for security reasons.');
   };
 }
 

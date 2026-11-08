@@ -1,10 +1,10 @@
-# Undo/Redo Task Pattern in Lyng
+# Undo/Redo Task Pattern in Nuncio
 
-This document explains how to implement undoable tasks in Lyng following the established patterns.
+This document explains how to implement undoable tasks in Nuncio following the established patterns.
 
 ## Overview
 
-Lyng uses a task-based architecture where operations are represented as `Task` objects that get queued and executed by the sync engine. The `UndoRedoStore` automatically tracks tasks that can be undone and provides undo/redo functionality.
+Nuncio uses a task-based architecture where operations are represented as `Task` objects that get queued and executed by the sync engine. The `UndoRedoStore` automatically tracks tasks that can be undone and provides undo/redo functionality.
 
 ## How It Works
 

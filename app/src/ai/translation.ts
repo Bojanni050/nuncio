@@ -1,7 +1,7 @@
 /**
  * Text-block translation against a provider the user configures, by key.
  *
- * Old Mailspring translated through id.getmailspring.com; Lyng does it client side.
+ * Old Mailspring translated through id.getmailspring.com; Nuncio does it client side.
  * The contract every adapter serves is the one the composer already needs: an array of
  * text blocks in, an array of translations out, same order and same length. That lets
  * translation UIs translate exactly the blocks they picked and merge the answers back

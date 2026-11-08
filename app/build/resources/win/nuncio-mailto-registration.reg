@@ -1,0 +1,60 @@
+Windows Registry Editor Version 5.00
+
+[{{HKEY_ROOT}}\SOFTWARE\Classes\Nuncio.Url.mailto]
+"FriendlyTypeName"="Nuncio Url"
+
+[{{HKEY_ROOT}}\SOFTWARE\Classes\Nuncio.Url.mailto\shell]
+
+[{{HKEY_ROOT}}\SOFTWARE\Classes\Nuncio.Url.mailto\shell\open]
+
+[{{HKEY_ROOT}}\SOFTWARE\Classes\Nuncio.Url.mailto\shell\open\command]
+@="\"{{PATH_TO_ROOT_FOLDER}}\\Update.exe\" --processStart Nuncio.exe --process-start-args %1"
+
+
+[{{HKEY_ROOT}}\SOFTWARE\Clients\Mail\Nuncio]
+@="Nuncio"
+"LocalizedString"="@{{PATH_TO_ROOT_FOLDER}}\\Update.exe,-123"
+
+[{{HKEY_ROOT}}\SOFTWARE\Clients\Mail\Nuncio\DefaultIcon]
+@="{{PATH_TO_APP_FOLDER}}\\Nuncio.exe,1"
+
+[{{HKEY_ROOT}}\SOFTWARE\Clients\Mail\Nuncio\Capabilities]
+"ApplicationName"="Nuncio"
+"ApplicationDescription"="A fast, modern mail client designed to help you boost your productivity."
+
+[{{HKEY_ROOT}}\SOFTWARE\Clients\Mail\Nuncio\Capabilities\StartMenu]
+"Mail"="Nuncio"
+
+[{{HKEY_ROOT}}\SOFTWARE\Clients\Mail\Nuncio\Capabilities\URLAssociations]
+"mailto"="Nuncio.Url.mailto"
+
+[{{HKEY_ROOT}}\SOFTWARE\Clients\Mail\Nuncio\Protocols]
+
+[{{HKEY_ROOT}}\SOFTWARE\Clients\Mail\Nuncio\Protocols\mailto]
+@="URL:MailTo Protocol"
+
+[{{HKEY_ROOT}}\SOFTWARE\Clients\Mail\Nuncio\Protocols\mailto\DefaultIcon]
+@="{{PATH_TO_APP_FOLDER}}\\Nuncio.exe,1"
+
+[{{HKEY_ROOT}}\SOFTWARE\Clients\Mail\Nuncio\Protocols\mailto\shell]
+
+[{{HKEY_ROOT}}\SOFTWARE\Clients\Mail\Nuncio\Protocols\mailto\shell\open]
+
+[{{HKEY_ROOT}}\SOFTWARE\Clients\Mail\Nuncio\Protocols\mailto\shell\open\command]
+@="\"{{PATH_TO_ROOT_FOLDER}}\\Update.exe\" --processStart Nuncio.exe --process-start-args %1"
+
+[{{HKEY_ROOT}}\SOFTWARE\Clients\Mail\Nuncio\shell]
+
+[{{HKEY_ROOT}}\SOFTWARE\Clients\Mail\Nuncio\shell\open]
+
+[{{HKEY_ROOT}}\SOFTWARE\Clients\Mail\Nuncio\shell\open\command]
+@="\"{{PATH_TO_ROOT_FOLDER}}\\Update.exe\" --processStart Nuncio.exe"
+
+[{{HKEY_ROOT}}\SOFTWARE\RegisteredApplications]
+"Nuncio"="Software\\Clients\\Mail\\Nuncio\\Capabilities"
+
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\MuiCache]
+"{{PATH_TO_ROOT_FOLDER}}\\Update.exe"="Nuncio"
+"{{PATH_TO_ROOT_FOLDER}}\\Update.exe.FriendlyAppName"="Nuncio"
+"{{PATH_TO_ROOT_FOLDER}}\\Update.exe.ApplicationCompany"="Nuncio"

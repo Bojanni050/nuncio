@@ -39,7 +39,7 @@ gebruik; zet er Postgres achter als je meerdere gebruikers krijgt.
   (bv. `https://track.example.com`) en hang deze service achter je reverse proxy.
   Hetzelfde geldt voor gedeelde threads: `thread-sharing/package.json` → `serverUrl` regelt de
   share-URLs. De client stuurt geen bearer mee als er geen token staat in `core.sharing.apiToken`
-  (of env `LYNG_SHARING_TOKEN`). Op de server blokkeer je share-uploads afzonderlijk met
+  (of env `NUNCIO_SHARING_TOKEN`). Op de server blokkeer je share-uploads afzonderlijk met
   `SHARE_TOKEN` — volgt geen `SHARE_TOKEN`, dan gelden de `API_TOKEN`-regels zoals bij de
   andere `/api/*`-writes, en kan je de tellings-API open laten terwijl share-uploads wél
   een sleutel vereisen. Zet ook `SHARE_DIR` expliciet als de share-data persistent moet

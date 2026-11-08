@@ -16,7 +16,7 @@ const path = require('path');
 const ts = require('typescript');
 
 const FROM = 'Mailspring';
-const TO = 'Lyng';
+const TO = 'Nuncio';
 const ROOTS = ['app/src', 'app/internal_packages', 'app/menus'];
 const DRY = process.argv.includes('--dry-run');
 

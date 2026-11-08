@@ -49,8 +49,8 @@ jobs:
 
       - name: Setup Provisioning Profile
         run: |
-          echo "APPLE_PROVISIONING_PROFILE_PATH=${{ runner.temp }}/Lyng.provisionprofile" >> $GITHUB_ENV
-          echo $APPLE_PROVISIONING_PROFILE_B64 | base64 --decode > "${{ runner.temp }}/Lyng.provisionprofile"
+          echo "APPLE_PROVISIONING_PROFILE_PATH=${{ runner.temp }}/Nuncio.provisionprofile" >> $GITHUB_ENV
+          echo $APPLE_PROVISIONING_PROFILE_B64 | base64 --decode > "${{ runner.temp }}/Nuncio.provisionprofile"
         env:
           APPLE_PROVISIONING_PROFILE_B64: ${{ secrets.APPLE_PROVISIONING_PROFILE_B64 }}
 
@@ -82,7 +82,7 @@ jobs:
       - name: Rename artifacts
         if: matrix.arch == 'arm64'
         run: |
-          mv app/dist/Lyng.zip app/dist/Lyng-AppleSilicon.zip
+          mv app/dist/Nuncio.zip app/dist/Nuncio-AppleSilicon.zip
 
       - name: Sync artifacts to S3 bucket
         run: |

@@ -8,7 +8,7 @@ const Steps = [
     title: localized('Compose with context'),
     image: 'feature-people@2x.png',
     description: localized(
-      'Lyng shows you everything about your contacts right inside your inbox. See LinkedIn profiles, Twitter bios, message history, and more.'
+      'Nuncio shows you everything about your contacts right inside your inbox. See LinkedIn profiles, Twitter bios, message history, and more.'
     ),
     x: 96.6,
     y: 1.3,
@@ -21,7 +21,7 @@ const Steps = [
     title: localized('Track opens and clicks'),
     image: 'feature-activity@2x.png',
     description: localized(
-      'With activity tracking, you’ll know as soon as someone reads your message. Sending to a group? Lyng shows you which recipients opened your email so you can follow up with precision.'
+      'With activity tracking, you’ll know as soon as someone reads your message. Sending to a group? Nuncio shows you which recipients opened your email so you can follow up with precision.'
     ),
     x: 12.8,
     y: 1,
@@ -34,7 +34,7 @@ const Steps = [
     title: localized('Send on your own schedule'),
     image: 'feature-snooze@2x.png',
     description: localized(
-      'Snooze emails to return at any time that suits you. Schedule messages to send at the ideal time. Lyng makes it easy to control the fabric of spacetime!'
+      'Snooze emails to return at any time that suits you. Schedule messages to send at the ideal time. Nuncio makes it easy to control the fabric of spacetime!'
     ),
     x: 5.5,
     y: 23.3,

@@ -8,7 +8,7 @@ import LinkTrackingMessageExtension from './link-tracking-message-extension';
 const LinkTrackingButtonWithTutorialTip = HasTutorialTip(LinkTrackingButton, {
   title: localized('Track links in this email'),
   instructions: localized(
-    'When link tracking is turned on, Lyng will notify you when recipients click links in this email.'
+    'When link tracking is turned on, Nuncio will notify you when recipients click links in this email.'
   ),
 });
 

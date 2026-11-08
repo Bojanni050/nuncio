@@ -37,7 +37,7 @@ function _getMenuTemplate(platform: string, application: Application) {
       type: 'separator',
     },
     {
-      label: localized('Quit Lyng'),
+      label: localized('Quit Nuncio'),
       click: () => application.emit('application:quit'),
     },
   ];

@@ -1,6 +1,6 @@
 {
     "gitbook": "3.2.2",
-    "title": "Lyng Plugin SDK",
+    "title": "Nuncio Plugin SDK",
     "root": "./app/build/docs_src/",
     "plugins": [
         "search",

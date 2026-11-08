@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 # Install dependencies
 npm install
 
-# Run the app in development mode (uses --dev flag, data stored in Lyng-dev folder)
+# Run the app in development mode (uses --dev flag, data stored in Nuncio-dev folder)
 npm start
 
 # Run linting (prettier runs as an eslint rule); lint:check reports without fixing
@@ -225,7 +225,7 @@ smaller functions over commentary; a comment that restates the code should be de
 - Reload the window with Developer > Reload: `Cmd+Option+L` (macOS), `Ctrl+Alt+L` (Linux), `Ctrl+Shift+R` (Windows). It reruns renderer code and recompiles edited files (the compile cache is keyed on file contents); main-process code in `app/src/browser` needs a full restart. `Cmd/Ctrl+R` is Reply
 - Dev tools accessible via Menu > Developer > Toggle Developer Tools
 - In dev tools console, `$m` provides access to `mailspring-exports` for debugging
-- Dev mode data is stored separately (e.g., `~/.config/Lyng-dev/` on Linux)
+- Dev mode data is stored separately (e.g., `~/.config/Nuncio-dev/` on Linux)
 - The interface language is set in Preferences > General (`core.intl.language`) and read at launch, so relaunch to apply it. Arabic, Persian, Hebrew and Kurdish run right-to-left: the workspace gets `dir="rtl"` and every stylesheet goes through `rtlcss`
 
 ## Claude Hooks

@@ -1,6 +1,6 @@
 # Plugin Development Skill
 
-Use this skill when working on code related to Lyng's plugin system, including:
+Use this skill when working on code related to Nuncio's plugin system, including:
 - Creating, modifying, or debugging plugins/packages
 - Working with the PackageManager or Package classes
 - Modifying plugin loading, discovery, or activation logic
@@ -52,7 +52,7 @@ When working on plugin functionality, these are the primary files to understand:
 
 ## Testing Plugin Changes
 
-- Use `npm start` to run in dev mode (uses `Lyng-dev` config directory)
+- Use `npm start` to run in dev mode (uses `Nuncio-dev` config directory)
 - Hot reload with `Ctrl+R` / `Cmd+R`
 - Access `$m` in dev console for `mailspring-exports`
-- User plugins go in `~/.config/Lyng-dev/packages/` during development
+- User plugins go in `~/.config/Nuncio-dev/packages/` during development

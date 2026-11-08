@@ -1,8 +1,8 @@
-# Contributing to Lyng
+# Contributing to Nuncio
 
-Thanks for checking out Lyng! We'd love for you to contribute. Whether
+Thanks for checking out Nuncio! We'd love for you to contribute. Whether
 you're a first-time open source contributor or an experienced developer, there
-are ways you can help make Lyng great!
+are ways you can help make Nuncio great!
 
 ## Filing Issues
 
@@ -13,7 +13,7 @@ follow any instructions they contain, and search for existing issues —
 the feature you have in mind, add a 👍 to it. Issues with more reactions are
 more likely to be addressed.
 
-For bugs, please verify that you're running the latest version of Lyng and
+For bugs, please verify that you're running the latest version of Nuncio and
 include your platform, app version and relevant log output. If you file an
 issue without providing detail, we may close it without comment.
 
@@ -45,7 +45,7 @@ easier to review.
 
 # Build and Run From Source
 
-If you want to understand how Lyng works or want to debug an issue,
+If you want to understand how Nuncio works or want to debug an issue,
 you'll want to get the source, build it, and run it locally.
 
 ## Installing Prerequisites
@@ -74,18 +74,18 @@ is also highly recommended. Based on your platform, you'll also need:
   - On Red Hat-based Linux: `sudo yum install libX11-devel.x86_64 libxkbfile-devel.x86_64 libsecret-1-dev libsecret-devel`.
 
 After you have these tools installed, run the following commands to check out
-Lyng, install dependencies, and launch the app:
+Nuncio, install dependencies, and launch the app:
 
 ```
 git clone https://github.com/Bojanni050/lyng
-cd lyng
+cd nuncio
 npm install
 npm start
 ```
 
 ### The mailsync binary
 
-Lyng's sync engine ([mailsync](https://github.com/Bojanni050/Mailspring-Sync),
+Nuncio's sync engine ([mailsync](https://github.com/Bojanni050/Mailspring-Sync),
 inherited from Mailspring) is a separate C++ program that the app spawns per
 account. You don't need to build it: `npm install` prints a reminder if the
 engine is missing, and `npm run fetch-mailsync` downloads this fork's prebuilt
@@ -101,17 +101,17 @@ engine, build and install it yourself; remove the submodule checkout and re-run
 
 ### App Data
 
-When you're running Lyng with `npm start`, it runs with the `--dev` flag
-and user data is located in a `Lyng-dev` folder alongside the regular
+When you're running Nuncio with `npm start`, it runs with the `--dev` flag
+and user data is located in a `Nuncio-dev` folder alongside the regular
 settings folder:
 
-- Mac: `~/Library/Application Support/Lyng-dev`
-- Windows: `C:\Users\<you>\AppData\Roaming\Lyng-dev`
-- Linux: `~/.config/Lyng-dev/`
+- Mac: `~/Library/Application Support/Nuncio-dev`
+- Windows: `C:\Users\<you>\AppData\Roaming\Nuncio-dev`
+- Linux: `~/.config/Nuncio-dev/`
 
 ### Developer Tools
 
-From Lyng, you can open the Developer Tools from the
+From Nuncio, you can open the Developer Tools from the
 menu: `Menu > Developer > Toggle Developer Tools`. Here are a few tips for
 getting started:
 
@@ -120,7 +120,7 @@ getting started:
 - On the console, `$m` is a shorthand for `mailspring-exports`, and allows you
   to access global `Stores` and `Model` classes.
 
-- You don't need to stop and restart the development version of Lyng
+- You don't need to stop and restart the development version of Nuncio
   after each change. You can just reload the window via `CTRL+R` (Windows/Linux)
   or `CMD+R` (macOS).
 
@@ -135,7 +135,7 @@ submitting a pull request to ensure the CI servers accept your code.
 Back in 2015 and 2016, the Nylas Mail team made a huge effort to document
 the codebase. The plugin SDK docs live in
 [`app/build/docs_src/`](app/build/docs_src/SUMMARY.md) and are still largely
-relevant to Lyng development.
+relevant to Nuncio development.
 
 ### Testing Localization
 

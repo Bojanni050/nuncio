@@ -1,6 +1,6 @@
-# Lyng SDK
+# Nuncio SDK
 
-- Lyng SDK Guides
+- Nuncio SDK Guides
 - [Introduction](/README.md)
 - [Getting Started](/guides/GettingStarted.md)
 - [Getting Started Part 2](/guides/GettingStarted-2.md)
@@ -8,7 +8,7 @@
 - [Interface Concepts](/guides/InterfaceConcepts.md)
 - [UI Components](/guides/React.md)
 - [Application Architecture](/guides/Architecture.md)
-- [Debugging Lyng](/guides/Debugging.md)
+- [Debugging Nuncio](/guides/Debugging.md)
 - [Accessing the Database](/guides/Database.md)
 - [Extending the Composer](/guides/ComposerExtensions.md)
 - [Writing Tests](/guides/WritingSpecs.md)

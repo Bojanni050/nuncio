@@ -210,7 +210,7 @@ class PreferencesAccountDetails extends Component<
     try {
       const logs = await AppEnv.mailsyncBridge.tailClientLog(id);
       const result = [
-        `Lyng Version: ${AppEnv.getVersion()}`,
+        `Nuncio Version: ${AppEnv.getVersion()}`,
         `Platform: ${process.platform}`,
         `Account State: ${syncState}`,
         `Account Provider: ${provider}`,
@@ -270,7 +270,7 @@ class PreferencesAccountDetails extends Component<
       case Account.SYNC_STATE_AUTH_FAILED:
         return this._renderErrorDetail(
           localized(
-            `Lyng can no longer authenticate with %@. The password or authentication may have changed.`,
+            `Nuncio can no longer authenticate with %@. The password or authentication may have changed.`,
             account.emailAddress
           ),
           [
@@ -281,7 +281,7 @@ class PreferencesAccountDetails extends Component<
       case Account.SYNC_STATE_ERROR:
         return this._renderErrorDetail(
           localized(
-            `Lyng encountered errors syncing this account. Crash reports have been sent to the Lyng team and we'll work to fix these errors in the next release.`
+            `Nuncio encountered errors syncing this account. Crash reports have been sent to the Nuncio team and we'll work to fix these errors in the next release.`
           ),
           [
             { text: localized('Reconnect'), action: this._onReconnect },
@@ -294,7 +294,7 @@ class PreferencesAccountDetails extends Component<
         }
         return this._renderErrorDetail(
           localized(
-            `Lyng can't connect to %@ and will keep retrying. This usually means your computer is offline. If your internet connection is working, your mail provider may be having trouble.`,
+            `Nuncio can't connect to %@ and will keep retrying. This usually means your computer is offline. If your internet connection is working, your mail provider may be having trouble.`,
             account.settings.imap_host || account.emailAddress
           ),
           [

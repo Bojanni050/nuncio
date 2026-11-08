@@ -28,7 +28,7 @@ type PreferencesTranslationState = {
  * Translation settings. Translation is a separate provider row for the same reason TTS and STT
  * have one: the chat model may be slow or priced per character, while DeepL is cheap and
  * self-hosted LibreTranslate needs no key at all. Every option is BYOK and runs client side;
- * there is no Lyng server in the middle.
+ * there is no Nuncio server in the middle.
  */
 class PreferencesTranslation extends React.Component<
   { config: ConfigLike },
@@ -122,7 +122,7 @@ class PreferencesTranslation extends React.Component<
         <h6>{localized('Translation')}</h6>
         <p>
           {localized(
-            'Used by Translate in the composer and on messages. Everything runs on your own provider; Lyng has no translation server.'
+            'Used by Translate in the composer and on messages. Everything runs on your own provider; Nuncio has no translation server.'
           )}
         </p>
 

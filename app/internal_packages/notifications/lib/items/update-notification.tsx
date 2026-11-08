@@ -61,8 +61,8 @@ export default class UpdateNotification extends React.Component<
       <Notification
         priority="4"
         title={localized(
-          `An update to Lyng is available %@`,
-          version ? `(${version.replace('Lyng', '').trim()})` : ''
+          `An update to Nuncio is available %@`,
+          version ? `(${version.replace('Nuncio', '').trim()})` : ''
         )}
         subtitle={localized('View changelog')}
         subtitleAction={this._onViewChangelog}

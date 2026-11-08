@@ -26,10 +26,10 @@ export function shareVersionProblem(apiVersion: string): string | null {
   switch (compatibility(apiVersion)) {
     case 'too-old':
       return localized(
-        'This View was built for an older version of Lyng, so it can’t be installed. Ask whoever shared it to update it and share it again.'
+        'This View was built for an older version of Nuncio, so it can’t be installed. Ask whoever shared it to update it and share it again.'
       );
     case 'too-new':
-      return localized('This View needs a newer version of Lyng. Update Lyng to install it.');
+      return localized('This View needs a newer version of Nuncio. Update Nuncio to install it.');
     default:
       return null;
   }

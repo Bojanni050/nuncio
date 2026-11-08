@@ -48,7 +48,7 @@ export default {
             title: localized('Show icon in menu bar / system tray'),
             note:
               process.platform === 'linux'
-                ? localized('On Linux you need to restart Lyng for the tray icon to disappear.')
+                ? localized('On Linux you need to restart Nuncio for the tray icon to disappear.')
                 : undefined,
           },
           trayIconStyle: {

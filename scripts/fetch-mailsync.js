@@ -4,7 +4,7 @@
  * Downloads the prebuilt mailsync binary for the current platform into app/.
  *
  * The root postinstall prints a reminder when the engine is missing but does not download
- * upstream binaries: those contain a path gate that prevents Lyng from starting.
+ * upstream binaries: those contain a path gate that prevents Nuncio from starting.
  * Run this script to fetch this fork's release, or build the engine from the submodule.
  *
  *   node scripts/fetch-mailsync.js            # download if app/mailsync is missing
@@ -100,7 +100,7 @@ function trySource(index, target = sources[index], redirects = 0) {
 
   https
     // GitHub's release CDN answers 403 to requests without a User-Agent.
-    .get(target, { headers: { 'User-Agent': 'lyng-fetch-mailsync' } }, (res) => {
+    .get(target, { headers: { 'User-Agent': 'nuncio-fetch-mailsync' } }, (res) => {
       if ([301, 302, 303, 307, 308].includes(res.statusCode) && res.headers.location && redirects < 6) {
         // GitHub answers /releases/latest/download/<asset> with a 302 to its CDN, so the
         // Location header is the whole point — re-requesting the same URL just loops.

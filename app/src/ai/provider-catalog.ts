@@ -1,7 +1,7 @@
 /**
  * Catalogue of hosted, OpenAI-compatible AI providers.
  *
- * Lyng talks to providers through the OpenAI `/models` shape, so one normaliser covers
+ * Nuncio talks to providers through the OpenAI `/models` shape, so one normaliser covers
  * DeepInfra, Mistral and any other compatible endpoint. Providers publish very different
  * metadata, though: DeepInfra ships descriptions and per-token prices in `metadata`, Mistral
  * ships capability flags but no prices at all. Everything a provider omits stays `undefined`

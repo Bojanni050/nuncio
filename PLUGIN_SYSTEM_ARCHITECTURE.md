@@ -1,6 +1,6 @@
-# Lyng Plugin System Architecture
+# Nuncio Plugin System Architecture
 
-This document provides a comprehensive overview of the Lyng plugin system for developers looking to understand, extend, or improve the plugin infrastructure.
+This document provides a comprehensive overview of the Nuncio plugin system for developers looking to understand, extend, or improve the plugin infrastructure.
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@ This document provides a comprehensive overview of the Lyng plugin system for de
 
 ## Overview
 
-Lyng uses a robust plugin architecture where features are implemented as "packages". The system is managed by two core files:
+Nuncio uses a robust plugin architecture where features are implemented as "packages". The system is managed by two core files:
 
 | File | Purpose |
 |------|---------|
@@ -35,7 +35,7 @@ Plugins are discovered from these directories in order:
 
 | Directory | Purpose | Notes |
 |-----------|---------|-------|
-| `<resourcePath>/internal_packages/` | Built-in plugins | 51 packages bundled with Lyng |
+| `<resourcePath>/internal_packages/` | Built-in plugins | 51 packages bundled with Nuncio |
 | `<configDirPath>/packages/` | User-installed plugins | Skipped in safe mode |
 | `<configDirPath>/dev/packages/` | Developer mode plugins | Only loaded in dev mode |
 | `<resourcePath>/spec/fixtures/packages/` | Test packages | Only in spec mode |
@@ -44,11 +44,11 @@ Plugins are discovered from these directories in order:
 
 | Platform | Config Directory |
 |----------|------------------|
-| Linux | `~/.config/Lyng/` |
-| macOS | `~/Library/Application Support/Lyng/` |
-| Windows | `%APPDATA%\Lyng\` |
+| Linux | `~/.config/Nuncio/` |
+| macOS | `~/Library/Application Support/Nuncio/` |
+| Windows | `%APPDATA%\Nuncio\` |
 
-In development mode, data is stored separately (e.g., `~/.config/Lyng-dev/` on Linux).
+In development mode, data is stored separately (e.g., `~/.config/Nuncio-dev/` on Linux).
 
 ---
 
@@ -388,8 +388,8 @@ AppEnv.packages.createPackageManually();
 ### Manual Installation
 
 1. Download/create plugin folder with valid `package.json`
-2. Copy to `~/.config/Lyng/packages/` (or platform equivalent)
-3. Restart Lyng (or call `installPackageFromPath()`)
+2. Copy to `~/.config/Nuncio/packages/` (or platform equivalent)
+3. Restart Nuncio (or call `installPackageFromPath()`)
 
 ### Validation Requirements
 

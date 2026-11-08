@@ -205,7 +205,7 @@ class _MessageStore extends MailspringStore {
   }
 
   _setWindowTitle() {
-    const title = 'Lyng' + (this._thread ? ' · ' + this._thread.subject : '');
+    const title = 'Nuncio' + (this._thread ? ' · ' + this._thread.subject : '');
     require('@electron/remote').getCurrentWindow().setTitle(title);
   }
 

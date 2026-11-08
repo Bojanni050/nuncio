@@ -1,6 +1,6 @@
 ---
 name: app-screenshots
-description: Capture screenshots of the running Lyng dev app for docs, PRs, or visual verification — launching with a CDP port, driving the UI, anonymizing or seeding data, and clipping to an element. Use whenever a task needs a picture of the app.
+description: Capture screenshots of the running Nuncio dev app for docs, PRs, or visual verification — launching with a CDP port, driving the UI, anonymizing or seeding data, and clipping to an element. Use whenever a task needs a picture of the app.
 ---
 
 # Screenshots of the running app

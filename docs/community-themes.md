@@ -1,6 +1,6 @@
-# Community Themes for Lyng
+# Community Themes for Nuncio
 
-This document lists known third-party themes (built on Mailspring's theme CSS, which Lyng inherits) found on GitHub.
+This document lists known third-party themes (built on Mailspring's theme CSS, which Nuncio inherits) found on GitHub.
 
 ## Official Resources
 
@@ -84,12 +84,12 @@ To create your own theme:
 
 ### Theme Installation
 
-Install themes via **Edit > Install Theme...** (or **Lyng > Install Theme...** on macOS) and select the theme folder.
+Install themes via **Edit > Install Theme...** (or **Nuncio > Install Theme...** on macOS) and select the theme folder.
 
 Alternatively, copy or symlink themes to:
-- **macOS**: `~/Library/Application Support/Lyng/packages/`
-- **Linux**: `~/.config/Lyng/packages/`
-- **Windows**: `%APPDATA%/Lyng/packages/`
+- **macOS**: `~/Library/Application Support/Nuncio/packages/`
+- **Linux**: `~/.config/Nuncio/packages/`
+- **Windows**: `%APPDATA%/Nuncio/packages/`
 
 ### Theme Structure
 

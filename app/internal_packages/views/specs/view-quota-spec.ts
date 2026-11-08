@@ -26,12 +26,12 @@ describe('View agent quota', () => {
   describe('limitNotice', () => {
     it('words each plan and limit', () => {
       expect(limitNotice('quota', { plan: 'free', limit: 2, period: 'unlimited' }).message).toBe(
-        'Thanks for trying out Views! Upgrade to Lyng Pro and build 10 new Views every month.'
+        'Thanks for trying out Views! Upgrade to Nuncio Pro and build 10 new Views every month.'
       );
       expect(
         limitNotice('spend_quota', { plan: 'free', limitCents: 500, period: 'unlimited' }).message
       ).toBe(
-        "You've used the AI tokens included with your trial of this Pro feature. Upgrade to Lyng Pro and build 10 new Views every month."
+        "You've used the AI tokens included with your trial of this Pro feature. Upgrade to Nuncio Pro and build 10 new Views every month."
       );
       expect(
         limitNotice('quota', {
@@ -120,10 +120,10 @@ describe('View agent quota', () => {
       expect(homeUsageLine(pro(3, 700))).toBe('3 of 10 Views this month · $7.00 of $8.00');
       const single = (used: number) => ({ ...free(used, 0), builds: { used, limit: 1 } });
       expect(homeUsageLine(single(0))).toBe(
-        'Custom views are a Lyng Pro feature, but you can try building one for free!'
+        'Custom views are a Nuncio Pro feature, but you can try building one for free!'
       );
       expect(homeUsageLine(single(1))).toBe(
-        'Custom views are a Lyng Pro feature - Upgrade today to create more Views!'
+        'Custom views are a Nuncio Pro feature - Upgrade today to create more Views!'
       );
     });
   });

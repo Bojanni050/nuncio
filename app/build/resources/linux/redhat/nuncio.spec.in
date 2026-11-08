@@ -26,36 +26,36 @@ Requires: libasound.so.2()(64bit), libXss.so.1()(64bit), libsecret-1.so.0()(64bi
 %define _build_id_links none
 
 %install
-mkdir -p %{buildroot}/usr/share/lyng
-cp -r <%= contentsDir %>/* %{buildroot}/usr/share/lyng
+mkdir -p %{buildroot}/usr/share/nuncio
+cp -r <%= contentsDir %>/* %{buildroot}/usr/share/nuncio
 
 mkdir -p %{buildroot}/usr/bin/
 
-ln -s ../share/lyng/lyng %{buildroot}/usr/bin/lyng
-chmod 755 %{buildroot}/usr/bin/lyng
+ln -s ../share/nuncio/nuncio %{buildroot}/usr/bin/nuncio
+chmod 755 %{buildroot}/usr/bin/nuncio
 
 mkdir -p %{buildroot}/usr/share/applications/
-mv Lyng.desktop %{buildroot}/usr/share/applications/
+mv Nuncio.desktop %{buildroot}/usr/share/applications/
 
 mkdir -p %{buildroot}/usr/share/metainfo/
-mv lyng.metainfo.xml %{buildroot}/usr/share/metainfo/
+mv nuncio.metainfo.xml %{buildroot}/usr/share/metainfo/
 
 for s in 16 32 64 128 256 512; do
     mkdir -p %{buildroot}/usr/share/icons/hicolor/${s}x${s}/apps
-    cp -p <%= linuxAssetsDir %>/icons/${s}.png %{buildroot}/usr/share/icons/hicolor/${s}x${s}/apps/lyng.png
+    cp -p <%= linuxAssetsDir %>/icons/${s}.png %{buildroot}/usr/share/icons/hicolor/${s}x${s}/apps/nuncio.png
 done
 
 %files
-/usr/bin/lyng
-/usr/share/lyng
-/usr/share/applications/Lyng.desktop
-/usr/share/metainfo/lyng.metainfo.xml
-/usr/share/icons/hicolor/16x16/apps/lyng.png
-/usr/share/icons/hicolor/32x32/apps/lyng.png
-/usr/share/icons/hicolor/64x64/apps/lyng.png
-/usr/share/icons/hicolor/128x128/apps/lyng.png
-/usr/share/icons/hicolor/256x256/apps/lyng.png
-/usr/share/icons/hicolor/512x512/apps/lyng.png
+/usr/bin/nuncio
+/usr/share/nuncio
+/usr/share/applications/Nuncio.desktop
+/usr/share/metainfo/nuncio.metainfo.xml
+/usr/share/icons/hicolor/16x16/apps/nuncio.png
+/usr/share/icons/hicolor/32x32/apps/nuncio.png
+/usr/share/icons/hicolor/64x64/apps/nuncio.png
+/usr/share/icons/hicolor/128x128/apps/nuncio.png
+/usr/share/icons/hicolor/256x256/apps/nuncio.png
+/usr/share/icons/hicolor/512x512/apps/nuncio.png
 
 %post
 gtk-update-icon-cache -f /usr/share/icons/hicolor &> /dev/null || :

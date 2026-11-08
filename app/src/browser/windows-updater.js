@@ -136,7 +136,7 @@ function createRegistryEntries({ allowEscalation, registerDefaultIfPossible }, c
   }
 
   fs.readFile(
-    path.join(appFolder, 'resources', 'lyng-mailto-registration.reg'),
+    path.join(appFolder, 'resources', 'nuncio-mailto-registration.reg'),
     (err, data) => {
       if (err || !data) {
         callback(err);
@@ -157,7 +157,7 @@ function createRegistryEntries({ allowEscalation, registerDefaultIfPossible }, c
         importContents = importContents.replace(/{{HKEY_ROOT}}/g, 'HKEY_CURRENT_USER');
       }
 
-      const importTempPath = path.join(os.tmpdir(), `lyng-reg-${Date.now()}.reg`);
+      const importTempPath = path.join(os.tmpdir(), `nuncio-reg-${Date.now()}.reg`);
 
       fs.writeFile(importTempPath, importContents, (writeErr) => {
         if (writeErr) {
@@ -170,7 +170,7 @@ function createRegistryEntries({ allowEscalation, registerDefaultIfPossible }, c
           spawnArgs.concat(['import', escapeBackticks(importTempPath)]),
           (spawnErr) => {
             if (isWindows7 && registerDefaultIfPossible) {
-              const defaultReg = path.join(appFolder, 'resources', 'lyng-mailto-default.reg');
+              const defaultReg = path.join(appFolder, 'resources', 'nuncio-mailto-default.reg');
               spawn(
                 spawnPath,
                 spawnArgs.concat(['import', escapeBackticks(defaultReg)]),
@@ -199,8 +199,8 @@ exports.existsSync = () => fs.existsSync(updateDotExe);
 // Registry path: HKEY_CURRENT_USER\SOFTWARE\Classes\AppUserModelId\{AUMID}
 function registerAppUserModelId(callback) {
   const aumid = 'com.squirrel.mailspring.mailspring';
-  const displayName = 'Lyng';
-  const iconPath = path.join(appFolder, 'resources', 'lyng-square.ico');
+  const displayName = 'Nuncio';
+  const iconPath = path.join(appFolder, 'resources', 'nuncio-square.ico');
 
   let regPath = 'reg.exe';
   if (process.env.SystemRoot) {
@@ -244,9 +244,9 @@ exports.registerAppUserModelId = registerAppUserModelId;
 function copyVisualElements() {
   try {
     const files = [
-      'lyng-75px.png',
-      'lyng-150px.png',
-      'lyng.VisualElementsManifest.xml',
+      'nuncio-75px.png',
+      'nuncio-150px.png',
+      'nuncio.VisualElementsManifest.xml',
     ];
     for (const file of files) {
       fs.copyFileSync(path.join(appFolder, 'resources', file), path.join(rootAppDataFolder, file));
@@ -297,14 +297,14 @@ exports.handleSquirrelInstall = (app) => {
     'Windows',
     'Start Menu',
     'Programs',
-    'Lyng.lnk'
+    'Nuncio.lnk'
   );
   const desktopPath = path.join(
     process.env.USERPROFILE || process.env.HOME,
     'Desktop',
-    'Lyng.lnk'
+    'Nuncio.lnk'
   );
-  const iconPath = path.join(appFolder, 'resources', 'lyng-square.ico');
+  const iconPath = path.join(appFolder, 'resources', 'nuncio-square.ico');
 
   const shortcutOptions = {
     target: updateDotExe,
@@ -347,7 +347,7 @@ exports.handleSquirrelInstall = (app) => {
     '/t',
     'REG_SZ',
     '/d',
-    'Lyng',
+    'Nuncio',
     '/f',
   ]);
   if (fs.existsSync(iconPath)) {
@@ -393,12 +393,12 @@ exports.handleSquirrelUninstall = (app) => {
     'Windows',
     'Start Menu',
     'Programs',
-    'Lyng.lnk'
+    'Nuncio.lnk'
   );
   const desktopPath = path.join(
     process.env.USERPROFILE || process.env.HOME,
     'Desktop',
-    'Lyng.lnk'
+    'Nuncio.lnk'
   );
 
   try {

@@ -131,7 +131,7 @@ export default class SignaturePhotoPicker extends React.Component<
     } catch (err) {
       AppEnv.showErrorDialog(
         localized(
-          `Sorry, we couldn't save your signature image to Lyng's servers. Please try again.\n\n(%@)`,
+          `Sorry, we couldn't save your signature image to Nuncio's servers. Please try again.\n\n(%@)`,
           err.toString()
         )
       );

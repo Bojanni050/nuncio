@@ -161,14 +161,14 @@ export class SendDraftTask extends Task {
         'Your `Sent Mail` folder could not be automatically detected. Visit Preferences > Folders to choose a Sent folder and then try again.'
       );
       errorDetail = localized(
-        'In order to send mail through Lyng, your email account must have a Sent Mail folder. You can specify a Sent folder manually by visiting Preferences > Folders and choosing a folder name from the dropdown menu.'
+        'In order to send mail through Nuncio, your email account must have a Sent Mail folder. You can specify a Sent folder manually by visiting Preferences > Folders and choosing a folder name from the dropdown menu.'
       );
     } else if (key === 'no-trash-folder') {
       errorMessage = localized(
         'Your `Trash` folder could not be automatically detected. Visit Preferences > Folders to choose a Trash folder and then try again.'
       );
       errorDetail = localized(
-        'In order to send mail through Lyng, your email account must have a Trash folder. You can specify a Trash folder manually by visiting Preferences > Folders and choosing a folder name from the dropdown menu.'
+        'In order to send mail through Nuncio, your email account must have a Trash folder. You can specify a Trash folder manually by visiting Preferences > Folders and choosing a folder name from the dropdown menu.'
       );
     } else if (key === 'send-partially-failed') {
       const [smtpError, emails] = debuginfo.split(':::');
@@ -182,7 +182,7 @@ export class SendDraftTask extends Task {
       );
     } else if (key === 'send-failed') {
       errorMessage = localized(
-        `Sorry, Lyng was unable to deliver this message: %@`,
+        `Sorry, Nuncio was unable to deliver this message: %@`,
         LocalizedErrorStrings[debuginfo] || debuginfo
       );
     } else {

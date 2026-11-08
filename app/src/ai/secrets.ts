@@ -66,7 +66,7 @@ async function readStoredMap(): Promise<SecretMap> {
     const parsed = JSON.parse(decrypted.result);
     return typeof parsed === 'object' && parsed !== null ? (parsed as SecretMap) : {};
   } catch (err) {
-    console.warn('Lyng could not read the encrypted AI keys from storage.', err);
+    console.warn('Nuncio could not read the encrypted AI keys from storage.', err);
     return {};
   }
 }
@@ -108,7 +108,7 @@ export async function storeSecret(scope: SecretScope, plaintext: string) {
     await writeStoredMap(next);
     if (readLegacy(scope)) AppEnv.config.unset(SECRET_LEGACY_KEYS[scope]);
   } catch (err) {
-    console.warn('Lyng could not store the AI key securely; keeping it in local settings.', err);
+    console.warn('Nuncio could not store the AI key securely; keeping it in local settings.', err);
     if (intended) {
       AppEnv.config.set(SECRET_LEGACY_KEYS[scope], intended);
     } else {

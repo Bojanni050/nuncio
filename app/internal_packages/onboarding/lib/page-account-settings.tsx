@@ -39,7 +39,7 @@ export class AccountBasicSettingsForm extends React.Component<AccountBasicSettin
     return (
       providerConfig.note ||
       localized(
-        `Enter your email account credentials to get started. Lyng\nstores your email password securely and it is never sent to our servers.`
+        `Enter your email account credentials to get started. Nuncio\nstores your email password securely and it is never sent to our servers.`
       )
     );
   };

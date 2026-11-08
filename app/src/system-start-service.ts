@@ -182,7 +182,7 @@ class SystemStartServiceLinuxBackgroundPortal extends SystemStartServiceBase {
       autostart: true,
       commandline: ['mailspring', '--background', '%U'],
       reason: localized(
-        'Lyng needs to run in the background to check for new mail and show notifications.'
+        'Nuncio needs to run in the background to check for new mail and show notifications.'
       ),
     }).catch((error) => {
       console.error('Error configuring to launch on system start:', error);

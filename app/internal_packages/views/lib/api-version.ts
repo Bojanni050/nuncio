@@ -66,7 +66,7 @@ export function withApiVersion<T extends object>(manifest: T): T {
 /** The message the authoring panel offers when a View is too old to run. */
 export function rebuildRequest(version: string) {
   return (
-    `This View was built for Lyng View API ${version}, which this version of Lyng ` +
+    `This View was built for Nuncio View API ${version}, which this version of Nuncio ` +
     `no longer runs. Please update it to API ${CURRENT_API_VERSION}: set "apiVersion": ` +
     `"${CURRENT_API_VERSION}" in manifest.json and adjust any calls that changed, keeping the ` +
     `View's behavior the same.`

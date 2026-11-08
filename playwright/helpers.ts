@@ -11,7 +11,7 @@ export const APP_ROOT = path.join(REPO_ROOT, 'app');
 /**
  * Source config directory with the golden database and encrypted credentials.
  */
-const FIXTURE_DIR = `/Library/Application Support/Lyng-dev-building-for-playwright`;
+const FIXTURE_DIR = `/Library/Application Support/Nuncio-dev-building-for-playwright`;
 const FIXTURE_DB = path.join(FIXTURE_DIR, 'edgehill.db');
 
 // ─── Config & Launch ───────────────────────────────────────────────────────
@@ -21,7 +21,7 @@ const FIXTURE_DB = path.join(FIXTURE_DIR, 'edgehill.db');
  * golden database so the app launches with real data.
  */
 export function prepareTestConfigDir(): string {
-  const dir = path.join(os.tmpdir(), `lyng-e2e-${Date.now()}`);
+  const dir = path.join(os.tmpdir(), `nuncio-e2e-${Date.now()}`);
   fs.mkdirSync(dir, { recursive: true });
 
   const sourceConfigPath = path.join(FIXTURE_DIR, 'config.json');

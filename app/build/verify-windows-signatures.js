@@ -2,10 +2,10 @@
 /**
  * Fails the build if any binary inside the Windows artifacts is unsigned.
  *
- * Squirrel generates Update.exe, squirrel.exe and Lyng_ExecutionStub.exe
+ * Squirrel generates Update.exe, squirrel.exe and Nuncio_ExecutionStub.exe
  * while building the installer, so neither signing step in the workflow sees
  * them. An unsigned stub is what Smart App Control blocks, and it is invisible
- * from the outside: LyngSetup.exe still verifies fine.
+ * from the outside: NuncioSetup.exe still verifies fine.
  */
 const fs = require('fs');
 const path = require('path');
@@ -163,7 +163,7 @@ function checkArchive(zip, label, unsigned) {
 
 function main() {
   const distDir = process.argv[2] || path.join(__dirname, '..', 'dist');
-  const setupPath = path.join(distDir, 'LyngSetup.exe');
+  const setupPath = path.join(distDir, 'NuncioSetup.exe');
   if (!fs.existsSync(setupPath)) {
     console.error(`Could not find ${setupPath}`);
     process.exit(1);
@@ -175,21 +175,21 @@ function main() {
 
   const unsigned = [];
   const setup = fs.readFileSync(setupPath);
-  if (!hasCertificateTable(setup)) unsigned.push('LyngSetup.exe');
+  if (!hasCertificateTable(setup)) unsigned.push('NuncioSetup.exe');
 
   const payload = findEmbeddedZip(setup);
   if (!payload) {
-    console.error('Could not find the payload zip inside LyngSetup.exe');
+    console.error('Could not find the payload zip inside NuncioSetup.exe');
     process.exit(1);
   }
   // The payload's nupkg is a copy of the one written beside the installer.
   const update = readCentralDirectory(payload).find((e) => /^Update\.exe$/i.test(e.name));
   if (!update) {
-    console.error('Could not find Update.exe inside LyngSetup.exe');
+    console.error('Could not find Update.exe inside NuncioSetup.exe');
     process.exit(1);
   }
   if (!hasCertificateTable(readEntry(payload, update))) {
-    unsigned.push('LyngSetup.exe -> Update.exe');
+    unsigned.push('NuncioSetup.exe -> Update.exe');
   }
 
   const packages = fs.readdirSync(distDir).filter((f) => f.endsWith('.nupkg'));
@@ -207,7 +207,7 @@ function main() {
     process.exit(1);
   }
 
-  console.log(`Verified LyngSetup.exe and ${packages.join(', ')}: all binaries signed.`);
+  console.log(`Verified NuncioSetup.exe and ${packages.join(', ')}: all binaries signed.`);
 }
 
 main();

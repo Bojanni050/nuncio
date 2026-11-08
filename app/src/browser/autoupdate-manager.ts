@@ -206,7 +206,7 @@ export default class AutoUpdateManager extends EventEmitter {
       icon: this.dialogIcon(),
       message: localized('No update available.'),
       title: localized('No update available.'),
-      detail: localized(`You're running the latest version of Lyng (%@).`, this.version),
+      detail: localized(`You're running the latest version of Nuncio (%@).`, this.version),
     });
   };
 

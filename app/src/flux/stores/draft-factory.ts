@@ -307,7 +307,7 @@ class DraftFactory {
     }
 
     return this.createDraft({
-      from: [new Contact({ email: account.emailAddress, name: `${account.name} via Lyng` })],
+      from: [new Contact({ email: account.emailAddress, name: `${account.name} via Nuncio` })],
       to: [account.defaultMe()],
       cc: [],
       pristine: false,

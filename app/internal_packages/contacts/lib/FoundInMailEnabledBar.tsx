@@ -42,7 +42,7 @@ class FoundInMailEnabledBarWithData extends React.Component<FoundInMailEnabledBa
       <div className="found-in-mail-enabled-bar">
         <div className="notice">
           {localized(
-            `Contacts you've emailed appear here and Lyng can suggest them when composing new messages.`
+            `Contacts you've emailed appear here and Nuncio can suggest them when composing new messages.`
           )}
         </div>
         <div className="btn" onClick={this._onToggle}>

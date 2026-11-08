@@ -44,7 +44,7 @@ export function explainMicrophoneError(error: unknown): string {
   switch (name) {
     case 'NotAllowedError':
     case 'SecurityError':
-      return 'Microphone access is blocked. Allow the microphone for Lyng in your system privacy settings, then try again.';
+      return 'Microphone access is blocked. Allow the microphone for Nuncio in your system privacy settings, then try again.';
     case 'NotFoundError':
     case 'OverconstrainedError':
       return 'No microphone matched the device chosen in Preferences → AI. Pick another input device there.';

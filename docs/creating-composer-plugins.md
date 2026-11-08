@@ -1,6 +1,6 @@
 # Creating Composer Plugins
 
-This guide covers how to build plugins that extend the Lyng composer — the email drafting interface. Composer plugins can add toolbar buttons, modify draft content, inject UI components, extend the Slate rich-text editor, and hook into the send lifecycle.
+This guide covers how to build plugins that extend the Nuncio composer — the email drafting interface. Composer plugins can add toolbar buttons, modify draft content, inject UI components, extend the Slate rich-text editor, and hook into the send lifecycle.
 
 ## Table of Contents
 
@@ -41,7 +41,7 @@ This guide covers how to build plugins that extend the Lyng composer — the ema
 
 ## Architecture Overview
 
-The Lyng composer is built on several layers:
+The Nuncio composer is built on several layers:
 
 ```
 ┌──────────────────────────────────────────────────────────┐

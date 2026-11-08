@@ -419,7 +419,7 @@ function emailColorsScript() {
   } else {
     code = fs.readFileSync(`${base}.js`, 'utf8');
   }
-  emailColorsSource = `(function () {\nvar exports = {};\nvar module = { exports: exports };\n${code}\nwindow.LyngEmailColors = module.exports;\n})();\n`;
+  emailColorsSource = `(function () {\nvar exports = {};\nvar module = { exports: exports };\n${code}\nwindow.NuncioEmailColors = module.exports;\n})();\n`;
   return emailColorsSource;
 }
 

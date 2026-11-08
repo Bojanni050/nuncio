@@ -29,9 +29,9 @@ class SendRemindersStore extends MailspringStore {
 
   _sendReminderEmail = async (thread: Thread, sentHeaderMessageId: string) => {
     const body = `
-      <strong>Lyng Reminder:</strong> This thread has been moved to the top of
-      your inbox by Lyng because no one has replied to your message.</p>
-      <p>--The Lyng Team</p>`;
+      <strong>Nuncio Reminder:</strong> This thread has been moved to the top of
+      your inbox by Nuncio because no one has replied to your message.</p>
+      <p>--The Nuncio Team</p>`;
 
     const draft = await DraftFactory.createDraftForResurfacing(thread, sentHeaderMessageId, body);
     Actions.queueTask(SendDraftTask.forSending(draft, { silent: true }));

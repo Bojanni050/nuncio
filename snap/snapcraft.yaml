@@ -1,6 +1,6 @@
-name: lyng
+name: nuncio
 license: GPL-3.0
-adopt-info: lyng
+adopt-info: nuncio
 
 confinement: strict
 base: core24
@@ -11,20 +11,20 @@ platforms:
   arm64:
 
 parts:
-  lyng:
+  nuncio:
     plugin: nil
     override-pull: |
-      deb="$(ls $CRAFT_PROJECT_DIR/app/dist/lyng-*.deb)"
+      deb="$(ls $CRAFT_PROJECT_DIR/app/dist/nuncio-*.deb)"
       craftctl set version="$(basename "$deb" | grep -Eo "[0-9]+.[0-9]+.[0-9]+")"
       dpkg -x "$deb" "$CRAFT_PART_SRC"
     override-build: |
       cp -a "$CRAFT_PART_SRC"/* "$CRAFT_PART_INSTALL"
       craftctl default
-      sed -i 's|Icon=lyng|Icon=/usr/share/pixmaps/lyng\.png|' \
-        $CRAFT_PART_INSTALL/usr/share/applications/Lyng.desktop
+      sed -i 's|Icon=nuncio|Icon=/usr/share/pixmaps/nuncio\.png|' \
+        $CRAFT_PART_INSTALL/usr/share/applications/Nuncio.desktop
     prime:
-      - -usr/share/lyng/chrome-sandbox
-    parse-info: [usr/share/metainfo/lyng.metainfo.xml]
+      - -usr/share/nuncio/chrome-sandbox
+    parse-info: [usr/share/metainfo/nuncio.metainfo.xml]
     stage-packages:
       - libxkbfile1
       - libsasl2-2
@@ -49,10 +49,10 @@ parts:
       - usr/lib/*/libsecret-*
 
 apps:
-  lyng:
-    command: usr/bin/lyng --no-sandbox
-    common-id: lyng
-    desktop: usr/share/applications/Lyng.desktop
+  nuncio:
+    command: usr/bin/nuncio --no-sandbox
+    common-id: nuncio
+    desktop: usr/share/applications/Nuncio.desktop
     extensions: [gnome]
     environment:
       HOME: $SNAP_USER_COMMON

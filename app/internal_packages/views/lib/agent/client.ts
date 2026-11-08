@@ -83,7 +83,7 @@ const RECONNECT_DELAYS_MS = [500, 1000, 2000, 5000, 10000];
 function authorization() {
   const identity = IdentityStore.identity();
   if (!identity) {
-    throw new AgentAPIError('Sign in with a Lyng ID to build Views.', {
+    throw new AgentAPIError('Sign in with a Nuncio ID to build Views.', {
       code: 'no_identity',
     });
   }
@@ -115,7 +115,7 @@ export function parseReply<T extends z.ZodType>(
 ): z.infer<T> {
   const parsed = schema.safeParse(json);
   if (!parsed.success) {
-    throw new AgentAPIError(`The Lyng servers sent an unexpected reply to ${desc}.`, {
+    throw new AgentAPIError(`The Nuncio servers sent an unexpected reply to ${desc}.`, {
       code: 'malformed_response',
     });
   }
@@ -145,7 +145,7 @@ export async function requestJSON(
       body: body ? JSON.stringify(body) : undefined,
     });
   } catch (err) {
-    throw new AgentAPIError(`Couldn't reach the Lyng servers (${desc}).`, {
+    throw new AgentAPIError(`Couldn't reach the Nuncio servers (${desc}).`, {
       code: 'offline',
     });
   }

@@ -75,7 +75,7 @@ export default function View() {
         <KeyRound size={28} className="text-ms-muted" />
         <h1 className="text-lg font-semibold text-ms-heading">Connect GitHub</h1>
         <p className="text-sm text-ms-muted max-w-sm">
-          This view reads your pull requests from GitHub's API. Lyng keeps your token in
+          This view reads your pull requests from GitHub's API. Nuncio keeps your token in
           your system keychain; the view never sees it.
         </p>
         <button className="px-4 py-1.5 rounded-md bg-ms-accent text-white text-sm" onClick={github.connect}>

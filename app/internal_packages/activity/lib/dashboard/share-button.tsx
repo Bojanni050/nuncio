@@ -12,8 +12,8 @@ function buildShareHTML(htmlEl: HTMLElement, styleEl: HTMLStyleElement) {
     <head>
     <meta charset="utf-8"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="author" content="Lyng">
-    <title>Lyng Activity</title>
+    <meta name="author" content="Nuncio">
+    <title>Nuncio Activity</title>
     <style type="text/css">
     body {
       font-family: sans-serif;

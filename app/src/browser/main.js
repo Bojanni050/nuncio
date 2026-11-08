@@ -42,12 +42,12 @@ if (typeof process.setFdLimit === 'function') {
 }
 
 const setupConfigDir = args => {
-  let dirname = 'Lyng';
+  let dirname = 'Nuncio';
   if (args.devMode) {
-    dirname = 'Lyng-dev';
+    dirname = 'Nuncio-dev';
   }
   if (args.specMode) {
-    dirname = 'Lyng-spec';
+    dirname = 'Nuncio-spec';
   }
 
   // Check if a custom config dir was provided via --config-dir-path
@@ -91,7 +91,7 @@ const declareOptions = argv => {
   const optimist = require('optimist');
   const options = optimist(argv);
   options.usage(
-    `Lyng\n\nUsage: mailspring [options] [recipient] [attachment]\n\nRun Lyng: The open source extensible email client\n\n\`mailspring mailto:johndoe@example.com\` to compose an e-mail to johndoe@example.com.\n\`mailspring ./attachment.txt\` to compose an e-mail with a text file attached.\n\`mailspring --dev\` to start the client in dev mode.\n\`mailspring --test\` to run unit tests.`
+    `Nuncio\n\nUsage: mailspring [options] [recipient] [attachment]\n\nRun Nuncio: The open source extensible email client\n\n\`mailspring mailto:johndoe@example.com\` to compose an e-mail to johndoe@example.com.\n\`mailspring ./attachment.txt\` to compose an e-mail with a text file attached.\n\`mailspring --dev\` to start the client in dev mode.\n\`mailspring --test\` to run unit tests.`
   );
   options
     .alias('d', 'dev')
@@ -124,7 +124,7 @@ const declareOptions = argv => {
   options
     .alias('c', 'config-dir-path')
     .string('c')
-    .describe('c', 'Override the path to the Lyng configuration directory');
+    .describe('c', 'Override the path to the Nuncio configuration directory');
   options
     .alias('s', 'spec-directory')
     .string('s')
@@ -143,7 +143,7 @@ const declareOptions = argv => {
   options
     .alias('b', 'background')
     .boolean('b')
-    .describe('b', 'Start Lyng in the background');
+    .describe('b', 'Start Nuncio in the background');
   return options;
 };
 
@@ -293,7 +293,7 @@ const start = () => {
   // StatusNotifierItem ID on Linux, causing their tray visibility settings
   // to be synchronized. See: https://github.com/electron/electron/issues/40936
   if (process.platform === 'linux') {
-    app.setName('Lyng');
+    app.setName('Nuncio');
   }
 
 

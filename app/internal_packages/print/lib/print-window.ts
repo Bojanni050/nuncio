@@ -114,7 +114,7 @@ export default class PrintWindow {
         AppEnv.showErrorDialog({
           title: localized('Save as PDF Failed'),
           message: localized(
-            'Lyng could not generate the PDF. Please try again. If the problem persists, try printing to a PDF printer instead.\n\nError: %@',
+            'Nuncio could not generate the PDF. Please try again. If the problem persists, try printing to a PDF printer instead.\n\nError: %@',
             err.message
           ),
         });

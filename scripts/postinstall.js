@@ -100,7 +100,7 @@ async function run() {
   );
   if (!mailsyncCandidates.some(candidate => fs.existsSync(candidate))) {
     console.log(
-      `\n-- Lyng's sync-engine binary is missing. Run 'npm run fetch-mailsync' to fetch this fork's release. ` +
+      `\n-- Nuncio's sync-engine binary is missing. Run 'npm run fetch-mailsync' to fetch this fork's release. ` +
         `If no artifact is available for your platform, build it from the mailsync/ submodule. --`
     );
   }

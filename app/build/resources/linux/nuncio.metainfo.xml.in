@@ -7,15 +7,15 @@
   <summary><%= description %></summary>
   <description>
     <p>
-      Lyng is a local-first mail client built on the Mailspring codebase (GPL-3.0). It replaces
+      Nuncio is a local-first mail client built on the Mailspring codebase (GPL-3.0). It replaces
       the JavaScript sync code of Nylas Mail with a C++ sync engine based on Mailcore2, runs all
       of its features locally, and adds local AI features on top.
     </p>
     <p>
-      Lyng comes packed with powerful features like Unified Inbox, Snooze, Send Later, Mail
+      Nuncio comes packed with powerful features like Unified Inbox, Snooze, Send Later, Mail
       Rules, Templates and more. Pro favorites like link tracking, read receipts, mailbox
       analytics, contact and company profiles run without any account, because everything runs
-      in the client - Lyng does not send your email credentials to the cloud.
+      in the client - Nuncio does not send your email credentials to the cloud.
     </p>
   </description>
 
@@ -29,7 +29,7 @@
   <launchable type="desktop-id"><%= desktopName %></launchable>
 
   <developer id="io.github.bojanni050">
-    <name>Lyng Team</name>
+    <name>Nuncio Team</name>
   </developer>
 
   <branding>
@@ -39,7 +39,7 @@
 
   <screenshots>
     <screenshot type="default">
-      <caption>Lyng Hero</caption>
+      <caption>Nuncio Hero</caption>
       <image type="source">https://github.com/Bojanni050/lyng/raw/main/screenshots/hero_graphic_mac@2x.png</image>
     </screenshot>
   </screenshots>

@@ -237,10 +237,10 @@ module.exports = {
       submenu: [
         { label: 'VERSION', enabled: false },
         { type: 'separator' },
-        { label: localized('Lyng Help'), command: 'application:view-help' },
+        { label: localized('Nuncio Help'), command: 'application:view-help' },
         { type: 'separator' },
         { label: localized('Getting Started Guide'), command: 'application:view-getting-started' },
-        { label: localized('Lyng Community'), command: 'application:view-community' },
+        { label: localized('Nuncio Community'), command: 'application:view-community' },
         { type: 'separator' },
         { label: localized('View License'), command: 'application:view-license' },
       ],
