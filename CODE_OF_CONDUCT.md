@@ -96,7 +96,7 @@ representative at an online or offline event.
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the community leaders responsible for enforcement either through
 a private GitHub issue or by opening a private discussion with the
-maintainers at [github.com/Bojanni050/lyng](https://github.com/Bojanni050/lyng).
+maintainers at [github.com/Bojanni050/nuncio](https://github.com/Bojanni050/nuncio).
 All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the

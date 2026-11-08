@@ -7,7 +7,7 @@ are ways you can help make Nuncio great!
 ## Filing Issues
 
 If you have a bug to report or a feature to suggest, please do so on
-[GitHub](https://github.com/Bojanni050/lyng/issues). Use the issue templates,
+[GitHub](https://github.com/Bojanni050/nuncio/issues). Use the issue templates,
 follow any instructions they contain, and search for existing issues —
 *including closed ones!* If someone has already reported a bug or requested
 the feature you have in mind, add a 👍 to it. Issues with more reactions are
@@ -77,7 +77,7 @@ After you have these tools installed, run the following commands to check out
 Nuncio, install dependencies, and launch the app:
 
 ```
-git clone https://github.com/Bojanni050/lyng
+git clone https://github.com/Bojanni050/nuncio
 cd nuncio
 npm install
 npm start

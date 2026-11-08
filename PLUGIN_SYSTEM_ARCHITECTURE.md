@@ -483,7 +483,7 @@ Optional plugins can be disabled via config:
 
 - Plugin Starter: https://github.com/Foundry376/Mailspring-Plugin-Starter
 - Theme Starter: https://github.com/Foundry376/Mailspring-Theme-Starter
-- Community: https://github.com/Bojanni050/lyng/issues
+- Community: https://github.com/Bojanni050/nuncio/issues
 
 ---
 

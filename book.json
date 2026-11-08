@@ -14,12 +14,12 @@
     ],
     "pluginsConfig": {
         "editlink": {
-          "base": "https://github.com/Bojanni050/lyng/tree/main",
+          "base": "https://github.com/Bojanni050/nuncio/tree/main",
           "label": "Edit This Page",
           "multilingual": false
         },
         "github": {
-            "url": "https://github.com/Bojanni050/lyng"
+            "url": "https://github.com/Bojanni050/nuncio"
         },
         "favicon": {
             "shortcut": "/img/favicon.png"

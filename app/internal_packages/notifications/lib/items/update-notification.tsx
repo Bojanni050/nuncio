@@ -48,7 +48,7 @@ export default class UpdateNotification extends React.Component<
   };
 
   _onViewChangelog = () => {
-    shell.openExternal('https://github.com/Bojanni050/lyng/releases/latest');
+    shell.openExternal('https://github.com/Bojanni050/nuncio/releases/latest');
   };
 
   render() {

@@ -4,7 +4,7 @@ Nuncio is een afsplitsing van [Foundry376/Mailspring](https://github.com/Foundry
 (GPL-3.0, versie 1.26.0). Dit bestand is de wijzigingenlijst die GPL §5a vraagt: wat is aangepast
 en waarom. De volledige upstream-historie zit in deze repo, dus `git log` blijft de bron van details.
 
-Repo: <https://github.com/Bojanni050/lyng> · branch `main` · upstream op afstand als
+Repo: <https://github.com/Bojanni050/nuncio> · branch `main` · upstream op afstand als
 `git remote add upstream https://github.com/Foundry376/Mailspring.git`.
 
 ## Uitgangspunt

@@ -1,3 +1,8 @@
+## 2026-11-08 (Repo op GitHub hernoemd naar Bojanni050/nuncio)
+
+- Findings: de GitHub-repo `Bojanni050/lyng` is hernoemd naar `Bojanni050/nuncio` (de oude URL redirect, maar alle interne refs moesten mee).
+- Actions: `Bojanni050/lyng` → `Bojanni050/nuncio` in 20 bestanden (package.json's, book.json, docs, metainfo/spec-templates, ISSUE_TEMPLATE, update-notification, window-event-handler, changelog-command) en `git remote set-url origin` naar de nieuwe URL. Geverifieerd: `git grep Bojanni050/lyng` leeg buiten walkthrough; invariants 14/14 PASS; JSON-parse OK. Validated.
+
 ## 2026-11-08 (Rebrand: Lyng → Nuncio)
 
 - Findings: na de eerdere Nuntio→Lyng-rebrand moesten dezelfde lagen opnieuw een naam meekrijgen: package-identity (`name`/`productName`/`desktopName`), menulabels en localized strings, profielmappen (`Nuncio`, `Nuncio-dev`, `Nuncio-spec`), packaging-laag (build.js, installer, .reg's, .desktop/.spec/metainfo-templates, mkdeb/mkrpm, snapcraft, CI-workflows), docs en de fork-invariants (`scripts/check-fork-invariants.js` verwachtte letterlijk `name === 'lyng'` en `productName === 'Lyng'`).

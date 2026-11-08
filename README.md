@@ -28,7 +28,7 @@ For details on what this fork changes, see [`NUNCIO.md`](NUNCIO.md).
 ## Download
 
 Build from source (below), or grab a package from the
-[release page](https://github.com/Bojanni050/lyng/releases).
+[release page](https://github.com/Bojanni050/nuncio/releases).
 
 ## Running Nuncio from Source
 
@@ -75,7 +75,7 @@ five minutes.
 A plugin "store" like the Chrome Web Store is not planned; users need to
 "sideload" plugins into the app by downloading them and copying them into
 place. Share plugins and questions through
-[GitHub issues and discussions](https://github.com/Bojanni050/lyng).
+[GitHub issues and discussions](https://github.com/Bojanni050/nuncio).
 
 For SDK documentation, see [`app/build/docs_src/`](app/build/docs_src/SUMMARY.md).
 

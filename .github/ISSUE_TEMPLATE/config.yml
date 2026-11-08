@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: Question or Discussion
-    url: https://github.com/Bojanni050/lyng/discussions
+    url: https://github.com/Bojanni050/nuncio/discussions
     about: Ask questions and discuss ideas before filing an issue.
   - name: Security Vulnerability
-    url: https://github.com/Bojanni050/lyng/security/advisories/new
+    url: https://github.com/Bojanni050/nuncio/security/advisories/new
     about: Report a security vulnerability privately. Please do not use public issues for security reports.

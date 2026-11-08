@@ -19,12 +19,12 @@
     </p>
   </description>
 
-  <url type="homepage">https://github.com/Bojanni050/lyng</url>
-  <url type="bugtracker">https://github.com/Bojanni050/lyng/issues</url>
-  <url type="contact">https://github.com/Bojanni050/lyng/issues</url>
-  <url type="help">https://github.com/Bojanni050/lyng</url>
-  <url type="contribute">https://github.com/Bojanni050/lyng/blob/main/CONTRIBUTING.md</url>
-  <url type="vcs-browser">https://github.com/Bojanni050/lyng</url>
+  <url type="homepage">https://github.com/Bojanni050/nuncio</url>
+  <url type="bugtracker">https://github.com/Bojanni050/nuncio/issues</url>
+  <url type="contact">https://github.com/Bojanni050/nuncio/issues</url>
+  <url type="help">https://github.com/Bojanni050/nuncio</url>
+  <url type="contribute">https://github.com/Bojanni050/nuncio/blob/main/CONTRIBUTING.md</url>
+  <url type="vcs-browser">https://github.com/Bojanni050/nuncio</url>
 
   <launchable type="desktop-id"><%= desktopName %></launchable>
 
@@ -40,7 +40,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>Nuncio Hero</caption>
-      <image type="source">https://github.com/Bojanni050/lyng/raw/main/screenshots/hero_graphic_mac@2x.png</image>
+      <image type="source">https://github.com/Bojanni050/nuncio/raw/main/screenshots/hero_graphic_mac@2x.png</image>
     </screenshot>
   </screenshots>
 

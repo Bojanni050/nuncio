@@ -5,7 +5,7 @@
   "version": "1.26.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Bojanni050/lyng.git"
+    "url": "git+https://github.com/Bojanni050/nuncio.git"
   },
   "commitHash": "COMMIT_INSERTED_DURING_PACKAGING",
   "description": "Nuncio - a local-first mail client, forked from Mailspring (GPL-3.0)",

@@ -8,7 +8,7 @@ The translation files are inherited from the Mailspring project: an initial tran
 
 #### Submit a Pull Request
 
-If you have a GitHub account, you can improve the localization files directly and submit a Pull Request to [github.com/Bojanni050/lyng](https://github.com/Bojanni050/lyng).
+If you have a GitHub account, you can improve the localization files directly and submit a Pull Request to [github.com/Bojanni050/nuncio](https://github.com/Bojanni050/nuncio).
 
 You'll find the localization files in [app/lang](app/lang) named according to the "Language tag" standard. If you're not sure what language tag applies to your language, check the [ISO 639-1 lookup table](http://www.loc.gov/standards/iso639-2/php/English_list.php). To modify the file on GitHub and submit a pull request, click the "Pencil Icon" when viewing the file.
 

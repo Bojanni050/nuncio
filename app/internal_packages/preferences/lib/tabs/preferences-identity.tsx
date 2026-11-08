@@ -202,7 +202,7 @@ class PreferencesIdentity extends React.Component<
               <span>
                 {localizedReactFragment(
                   `Nuncio is independent %@ software, and subscription revenue allows us spend time maintaining and improving the product.`,
-                  <a href="https://github.com/Bojanni050/lyng/">{localized('open source')}</a>
+                  <a href="https://github.com/Bojanni050/nuncio/">{localized('open source')}</a>
                 )}
               </span>
             )}
