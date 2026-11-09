@@ -231,6 +231,13 @@ export default class Application extends EventEmitter {
     if (process.platform === 'linux') {
       const helper = new DefaultClientHelper();
       helper.registerForURLScheme('mailspring');
+    } else if (process.defaultApp && process.argv[1]) {
+      // Electron's one-argument overload drops the app path when running
+      // unpackaged, registering "electron.exe %1". Every mailspring:// activation
+      // (toast clicks, jump lists) then dies with "Unable to find Electron app".
+      app.setAsDefaultProtocolClient('mailspring', process.execPath, [
+        path.resolve(process.argv[1]),
+      ]);
     } else {
       app.setAsDefaultProtocolClient('mailspring');
     }
