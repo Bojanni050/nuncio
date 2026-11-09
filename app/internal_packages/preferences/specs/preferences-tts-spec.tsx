@@ -41,12 +41,14 @@ function stubAPI(calls: any[] = []) {
       headers: { get: () => 'application/json' },
       json: () =>
         Promise.resolve(
-          url.endsWith('/audio/voices')
+          url.includes('/audio/voices')
             ? VOICES
             : url.endsWith('/audio/speech')
               ? { audio_data: btoa('mp3') }
               : TTS_MODELS
         ),
+      text: () => Promise.resolve('{}'),
+      arrayBuffer: () => Promise.resolve(new ArrayBuffer(0)),
     });
   };
   return calls;

@@ -29,6 +29,7 @@ function stubFetch(status: number, payload: any, contentType = 'application/json
         get: (name: string) => (name.toLowerCase() === 'content-type' ? contentType : null),
       },
       json: () => Promise.resolve(payload),
+      text: () => Promise.resolve(typeof payload === 'string' ? payload : JSON.stringify(payload)),
       arrayBuffer: () => Promise.resolve(new ArrayBuffer(0)),
     });
   };
@@ -74,6 +75,21 @@ describe('normalizeVoiceList', function () {
     const voices = normalizeVoiceList([{ id: 'a', name: 'A' }, { name: 'No id' }, null]);
     expect(voices.map((voice) => voice.id)).toEqual(['a']);
   });
+
+  it('reads the paginated item list and prefers a preset slug over its id', () => {
+    const voices = normalizeVoiceList({
+      items: [
+        { id: 'a3e8f2b1', slug: 'gb_jane_neutral', name: 'Jane', languages: ['en'] },
+        { id: 'a3e8f2b2', slug: null, name: 'My Voice', languages: ['nl'] },
+      ],
+      total: 2,
+      page: 1,
+      page_size: 50,
+      total_pages: 1,
+    });
+
+    expect(voices.map((voice) => voice.id)).toEqual(['gb_jane_neutral', 'a3e8f2b2']);
+  });
 });
 
 describe('fetchTTSVoices', function () {
@@ -89,8 +105,36 @@ describe('fetchTTSVoices', function () {
     const voices = await fetchTTSVoices({ baseUrl: CONFIG.baseUrl, apiKey: CONFIG.apiKey });
 
     expect(voices.length).toBe(1);
-    expect(calls[0].url).toBe('https://api.mistral.ai/v1/audio/voices');
+    expect(calls[0].url).toBe('https://api.mistral.ai/v1/audio/voices?limit=10&offset=0');
     expect((calls[0].init.headers as any).Authorization).toBe('Bearer sk-tts');
+  });
+
+  it('walks the offsets until every page is collected', async () => {
+    const pages = [
+      { items: [{ id: 'v1', name: 'A' }], total: 2 },
+      { items: [{ id: 'v2', name: 'B' }], total: 2 },
+    ];
+    const urls: string[] = [];
+    (window as any).fetch = (url: string) => {
+      urls.push(url);
+      const payload = pages[urls.length - 1];
+      return Promise.resolve({
+        ok: true,
+        status: 200,
+        headers: { get: () => 'application/json' },
+        json: () => Promise.resolve(payload),
+        text: () => Promise.resolve(JSON.stringify(payload)),
+        arrayBuffer: () => Promise.resolve(new ArrayBuffer(0)),
+      });
+    };
+
+    const voices = await fetchTTSVoices({ baseUrl: CONFIG.baseUrl, apiKey: CONFIG.apiKey });
+
+    expect(voices.map((voice) => voice.id)).toEqual(['v1', 'v2']);
+    expect(urls).toEqual([
+      'https://api.mistral.ai/v1/audio/voices?limit=10&offset=0',
+      'https://api.mistral.ai/v1/audio/voices?limit=10&offset=1',
+    ]);
   });
 
   it('refuses to call without a key', async () => {
@@ -156,6 +200,14 @@ describe('synthesizeSpeech', function () {
     stubFetch(422, {});
     const error = await rejection(() => synthesizeSpeech({ config: CONFIG, text: 'Hello' }));
     expect(error.message).toContain('text-to-speech model');
+  });
+
+  it('repeats what the provider said when it refuses', async () => {
+    stubFetch(400, { message: 'Either ref_audio or voice must be provided.' });
+    const error = await rejection(() =>
+      synthesizeSpeech({ config: { ...CONFIG, voice: '' }, text: 'Hello' })
+    );
+    expect(error.message).toContain('Either ref_audio or voice must be provided.');
   });
 
   it('refuses a response with no audio', async () => {

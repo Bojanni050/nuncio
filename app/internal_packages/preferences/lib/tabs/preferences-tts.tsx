@@ -127,7 +127,10 @@ class PreferencesTTS extends React.Component<{ config: ConfigLike }, Preferences
 
   _visibleModels(): AIModelInfo[] {
     const models = this.state.models || [];
-    const speech = models.filter((model) => /tts|voxtral|audio|speech/i.test(model.id));
+    // `voxtral` alone also matches transcription models, which reject speech requests.
+    const speech = models.filter(
+      (model) => /tts/i.test(model.id) && !/transcrib|realtime|stt|asr/i.test(model.id)
+    );
     return speech.length > 0 ? speech : models;
   }
 
@@ -163,7 +166,7 @@ class PreferencesTTS extends React.Component<{ config: ConfigLike }, Preferences
     this._voicesController?.abort();
     const controller = new AbortController();
     this._voicesController = controller;
-    this.setState({ loadingVoices: true });
+    this.setState({ loadingVoices: true, error: null });
 
     try {
       const voices = await fetchTTSVoices({
@@ -172,13 +175,26 @@ class PreferencesTTS extends React.Component<{ config: ConfigLike }, Preferences
         signal: controller.signal,
       });
       if (controller.signal.aborted) return;
-      this.setState({ voices, loadingVoices: false });
+      // Mistral needs a voice on every request, so land on the first one when nothing is
+      // selected yet. That way "Test voice" works right after fetching.
+      const voice = this.state.voice || voices[0]?.id || '';
+      if (voice && voice !== this.state.voice) this._setConfig(TTS_CONFIG_KEYS.voice, voice);
+      this.setState({
+        voices,
+        voice,
+        loadingVoices: false,
+        status: voices.length
+          ? null
+          : localized('Mistral returned no voices for this key. Create one in Mistral Studio.'),
+      });
     } catch (error) {
       if (controller.signal.aborted) return;
-      // A missing voice list is not fatal: Mistral falls back to a default voice.
       this.setState({
         loadingVoices: false,
-        status: error instanceof AIProviderError ? error.message : null,
+        error:
+          error instanceof AIProviderError
+            ? error.message
+            : localized('Something went wrong while fetching the voices.'),
       });
     }
   }
@@ -190,6 +206,14 @@ class PreferencesTTS extends React.Component<{ config: ConfigLike }, Preferences
   async _test() {
     if (this.state.testing) return;
     this._stopAudio();
+
+    if (!this.state.voice) {
+      this.setState({
+        error: localized('Choose a voice first. Mistral needs a voice ID on every speech request.'),
+      });
+      return;
+    }
+
     this.setState({ testing: true, error: null, status: null });
 
     try {
@@ -316,7 +340,7 @@ class PreferencesTTS extends React.Component<{ config: ConfigLike }, Preferences
           <label htmlFor="tts-voice">{localized('Voice')}</label>
           <div className="ai-key-row">
             <select id="tts-voice" value={this.state.voice} onChange={this._onVoiceChange}>
-              <option value="">{localized('Provider default')}</option>
+              <option value="">{localized('Choose a voice…')}</option>
               {(this.state.voices || []).map((voice) => (
                 <option key={voice.id} value={voice.id}>
                   {voice.name ? `${voice.name} (${voice.id})` : voice.id}
@@ -331,6 +355,11 @@ class PreferencesTTS extends React.Component<{ config: ConfigLike }, Preferences
             >
               {this.state.loadingVoices ? localized('Fetching…') : localized('Fetch voices')}
             </button>
+          </div>
+          <div className="ai-hint">
+            {localized(
+              'Mistral needs a voice for every speech request. Fetch the list and pick one.'
+            )}
           </div>
         </div>
 
