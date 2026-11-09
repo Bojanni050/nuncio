@@ -10,7 +10,11 @@ import {
 
 import { localized, FocusedPerspectiveStore, Utils, DateUtils, Thread } from 'mailspring-exports';
 
-import { ThreadArchiveQuickAction, ThreadTrashQuickAction } from './thread-list-quick-actions';
+import {
+  ThreadArchiveQuickAction,
+  ThreadTrashQuickAction,
+  ThreadTrashIconButton,
+} from './thread-list-quick-actions';
 import ThreadListParticipants from './thread-list-participants';
 import ThreadListIcon from './thread-list-icon';
 import { ThreadWithMessagesMetadata } from './types';
@@ -137,12 +141,15 @@ const c4 = new ListTabular.Column({
   name: 'Date',
   resolver: (thread: ThreadWithMessagesMetadata) => {
     return (
-      <InjectedComponent
-        className="thread-injected-timestamp"
-        fallback={ThreadListTimestamp}
-        exposedProps={{ thread: thread }}
-        matching={{ role: 'ThreadListTimestamp' }}
-      />
+      <div className="thread-list-date-cell">
+        <InjectedComponent
+          className="thread-injected-timestamp"
+          fallback={ThreadListTimestamp}
+          exposedProps={{ thread: thread }}
+          matching={{ role: 'ThreadListTimestamp' }}
+        />
+        <ThreadTrashIconButton key="thread-trash-icon-button" thread={thread} />
+      </div>
     );
   },
 });
@@ -225,6 +232,7 @@ const cNarrow = new ListTabular.Column({
               exposedProps={{ thread: thread }}
               matching={{ role: 'ThreadListTimestamp' }}
             />
+            <ThreadTrashIconButton key="thread-trash-icon-button" thread={thread} />
           </div>
           <div className="subject" dir="auto">
             {subject(thread.subject)}

@@ -75,7 +75,9 @@
       transition: background-color linear 150ms;
       background-color: mix(#ed304b, @background-primary, 75%);
       &::after {
-        transition: left linear 150ms, transform linear 150ms;
+        transition:
+          left linear 150ms,
+          transform linear 150ms;
         content: 'Trash';
         left: 0;
         background-image: url(../static/images/swipe/icon-swipe-trash@2x.png);
@@ -94,7 +96,9 @@
       transition: background-color linear 150ms;
       background-color: mix(#6cd420, @background-primary, 75%);
       &::after {
-        transition: left linear 150ms, transform linear 150ms;
+        transition:
+          left linear 150ms,
+          transform linear 150ms;
         content: 'Archive';
         left: 0;
         background-image: url(../static/images/swipe/icon-swipe-archive@2x.png);
@@ -112,7 +116,9 @@
       transition: background-color linear 150ms;
       background-color: mix(#8d6be3, @background-primary, 75%);
       &::after {
-        transition: right linear 150ms, transform linear 150ms;
+        transition:
+          right linear 150ms,
+          transform linear 150ms;
         content: 'Snooze';
         right: 0;
         background-image: url(../static/images/swipe/icon-swipe-snooze@2x.png);
@@ -325,6 +331,43 @@
 @trash-img: '../static/images/thread-list-quick-actions/ic-quick-button-trash@2x.png';
 @snooze-img: '../static/images/thread-list-quick-actions/ic-quickaction-snooze@2x.png';
 
+// Always-visible trash control next to the date. Masked with currentColor so it
+// follows the theme (and the inverted focus/selection colours) instead of
+// needing a second light-on-dark asset.
+.thread-list .thread-list-trash-button {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  opacity: 0.35;
+  cursor: pointer;
+  background-color: currentColor;
+  -webkit-mask: url(@trash-img) center / 13px 13px no-repeat;
+  mask: url(@trash-img) center / 13px 13px no-repeat;
+  transition: opacity 0.1s ease-in-out;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 1;
+  }
+  &:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: -3px;
+    border-radius: 3px;
+  }
+}
+
+.thread-list .thread-list-date-cell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  margin-right: @scrollbar-margin;
+
+  .timestamp {
+    margin-right: 0;
+  }
+}
+
 .thread-list .list-item .list-column-HoverActions {
   display: none;
   .action {
@@ -336,13 +379,19 @@
     margin: 9px 12px 0 12px;
   }
   .action.action-archive {
-    background: url(@archive-img) center no-repeat, @background-gradient;
+    background:
+      url(@archive-img) center no-repeat,
+      @background-gradient;
   }
   .action.action-trash {
-    background: url(@trash-img) center no-repeat, @background-gradient;
+    background:
+      url(@trash-img) center no-repeat,
+      @background-gradient;
   }
   .action.action-snooze {
-    background: url(@snooze-img) center no-repeat, @background-gradient;
+    background:
+      url(@snooze-img) center no-repeat,
+      @background-gradient;
   }
 }
 body.platform-win32 {
@@ -466,6 +515,9 @@ body.platform-win32 {
     order: 100;
     min-width: 0;
   }
+  .thread-list-trash-button {
+    order: 101;
+  }
   .participants {
     font-size: @font-size-base;
   }
@@ -556,7 +608,7 @@ body.is-blurred {
   height: 100%;
   width: 100%;
   border-top: 1px solid @border-color-divider;
-  .sheet-toolbar { 
+  .sheet-toolbar {
     -webkit-app-region: none;
   }
 }
